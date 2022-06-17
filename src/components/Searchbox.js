@@ -9,25 +9,8 @@ export const Searchbox = () => {
     const {auth, logout,actualizarAvatar} = useContext(AuthContext);
 
     const [img, setImg] = useState(auth.img);
-    console.log(auth.img)
 
     const nombre = auth.nombre;
-   /* const style ={
-        borderRadius:40,
-        width:'30px',
-        fontWeight:'bold'
-    }*/
-
-   /* const span ={
-        fontSize:'20px',
-        color:'#0C5460',
-        fontWeight:'bold',
-        paddingRight:'20%'
-
-    }*/
-
-
-
 
 const onFileInputChange= async({target})=>{
  

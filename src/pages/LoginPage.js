@@ -45,7 +45,6 @@ const onSubmit= async (e)=>{
     const{email, password}= form;
 
     const ok = await login(email,password);
-    console.log(ok)
     if(!ok){
         Swal.fire('Error', 'Verifique usuario y/o contraseña', 'error')
 
@@ -95,7 +94,8 @@ const todoOK=()=>{
             name="password" 
             placeholder="Password"
             value={form.password}
-            onChange={onChange} />
+            onChange={onChange} 
+            autoComplete="on"/>
     </div>
 
 </div>

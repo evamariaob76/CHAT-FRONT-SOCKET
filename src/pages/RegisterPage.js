@@ -45,7 +45,6 @@ const onSubmit= async (e)=>{
     const{nombre, email, password,img}= form;  
 
     const ok = await register(nombre,email, password, img);
-    console.log(register);
 
     if(!ok){
         Swal.fire('Error', 'Ya existe el usuario', 'error')
