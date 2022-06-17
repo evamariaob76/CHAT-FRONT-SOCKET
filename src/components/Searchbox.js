@@ -12,19 +12,19 @@ export const Searchbox = () => {
     console.log(auth.img)
 
     const nombre = auth.nombre;
-    const style ={
+   /* const style ={
         borderRadius:40,
         width:'30px',
         fontWeight:'bold'
-    }
+    }*/
 
-    const span ={
+   /* const span ={
         fontSize:'20px',
         color:'#0C5460',
         fontWeight:'bold',
         paddingRight:'20%'
 
-    }
+    }*/
 
 
 
@@ -53,7 +53,7 @@ const onFileInputChange= async({target})=>{
 
 
             <div  className="contenedor chat col-6">
-            <img src={img}style={{opacity:'0.7'}}/>
+            <img src={img}style={{opacity:'0.7'}} alt={img}/>
   <h3 className="centrado"style={{padding:'10px', fontSize:'30px', fontWeight:'bold'}}>{nombre.toUpperCase()}</h3>
          </div>
 

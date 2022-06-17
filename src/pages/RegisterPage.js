@@ -52,9 +52,9 @@ const onSubmit= async (e)=>{
 
 
 
-const todoOK=()=>{
+/*const todoOK=()=>{
     return( form.email.length > 0 && form.password.length >0 && form.nombre.length>0) ? true : false;
-}
+}*/
     return (
     <div className='container'>
                 <div className="img ">            
