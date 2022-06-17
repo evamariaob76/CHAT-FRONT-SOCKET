@@ -516,10 +516,16 @@ iframe {
 
   }
 
-    .input100 {
+    body {
   
-      height: 42px;
+    max-width: 1000px;
+    align-items: center;
+    display: flex;
     }
+}
+.container-login100{
+  min-height: 100vh;
+display: flex;
 }
 
 

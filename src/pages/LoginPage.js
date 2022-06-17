@@ -65,7 +65,7 @@ const todoOK=()=>{
 
 
 
-    <div className='container center-block '>
+    <div className='container  '>
         <div className='row'> 
                 <div className="img ">            
 
