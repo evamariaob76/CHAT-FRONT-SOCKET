@@ -62,7 +62,7 @@ const todoOK=()=>{
 }
 
     return (
-    <div className='container '>
+    <div className='container center-block '>
         <div className='row'> 
                 <div className="img ">            
 
@@ -126,7 +126,7 @@ const todoOK=()=>{
                 </div>
             </div>
 
-            <div className="container-login100-form-btn m-t-17">
+            <div className="center-block ">
                 <button type="submit" className="login100-form-btn responsive" disabled={!todoOK()}>
                     Ingresar
                 </button>

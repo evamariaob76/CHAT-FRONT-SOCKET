@@ -4,10 +4,7 @@
   box-sizing: border-box;
 }
 
-body,
-html {
-  height: 150%;
-}
+
 
 body {
   /* The image used */
@@ -215,10 +212,8 @@ iframe {
   background-image: url('https://res.cloudinary.com/drwgawhls/image/upload/v1655404311/chat/azul_n1fijk.png');
   border-radius: 15px;
   border: 1px solid #999;
-  width: 700px;
-  height: 100%;
+    position: relative !important;
    box-shadow: 5px 10px 8px 10px #888888;
-  position: relative;
   overflow: hidden;
   padding: 25px !important;
 }
@@ -371,7 +366,6 @@ iframe {
   color: #827ffe;
 }
 
-
 /*------------------------------------------------------------------
 [ Button ]*/
 .container-login100-form-btn {
@@ -499,25 +493,23 @@ iframe {
   input {
     font-size: 15px !important;
   }
- .container {
-    width: 1450px;
-    height: 400px;
-        }
 
 }
 
+
+
 @media screen and (max-width: 1000px) {
-  .container{
-    width: 220px;
-      height: 450px;
-  }
+
   .ocultar-div {
     display: none;
   }
 
   .responsive {
-    font-size: 15px;
+    font-size: 10px;
 
+  }
+  .container{
+    background-image: none;
   }
 }
 
