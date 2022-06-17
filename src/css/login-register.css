@@ -475,6 +475,10 @@ iframe {
     visibility: visible;
     opacity: 1;
   }
+    .input100 {
+  
+      height: 42px;
+    }
 }
 
 @media (max-width:850px) {
@@ -491,9 +495,12 @@ iframe {
   .obligatorio,
   p,
   input {
-    font-size: 15px !important;
+    font-size: 12px !important;
   }
+.input100 {
 
+  height: 42px;
+}
 }
 
 
@@ -508,9 +515,11 @@ iframe {
     font-size: 10px;
 
   }
-  .container{
-    background-image: none;
-  }
+
+    .input100 {
+  
+      height: 42px;
+    }
 }
 
 
