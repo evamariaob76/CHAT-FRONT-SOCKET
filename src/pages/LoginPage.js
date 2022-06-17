@@ -62,7 +62,7 @@ const todoOK=()=>{
 }
 
     return (
-    <div className='container'>
+    <div className='container '>
                 <div className="img ">            
 
         <div className="row login100-form avatarRegistro ocultar-div">            
@@ -131,7 +131,7 @@ const todoOK=()=>{
 
         </form>
                 </div>
-                            </div>
+    </div>
 
     )
 }

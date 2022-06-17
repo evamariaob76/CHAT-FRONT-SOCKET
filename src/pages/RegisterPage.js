@@ -59,8 +59,8 @@ const onSubmit= async (e)=>{
         </div>
 
         </div>
-              <div className='form-group'>
-        <form className="login100-form "
+              <div className=''>
+        <form className=" "
                onSubmit={onSubmit}>  
                 <div className='contenedor-registro'>             
             <span className="login100-form-title mb-3 responsive">
