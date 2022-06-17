@@ -64,76 +64,7 @@ const todoOK=()=>{
 }
 
     return (
-    /*<div className='container form-group  '>
-                <div className="img ">            
-
-        <div className="row login100-form avatarRegistro img-thumbnail ">            
-        </div>
-
-        </div>
-        <div className='login100-form col-sm-3 col-lg-12  col-md-6 col-xs-6 col-6 col-form-label '>
-        <form className="login100-form validate-form flex-sb flex-w"
-               onSubmit={onSubmit}>
-            <span className="login100-form-title mb-3">
-                 Ingreso
-            </span>
-
-            <div className="wrap-input100 validate-input mb-3">
-                <input 
-                    className="input100 form-control" 
-                    type="email" 
-                    name="email" 
-                    placeholder="Email"
-                    value={form.email}
-                    onChange={onChange} />
-                <span className="focus-input100"></span>
-            </div>
-
-
-            <div className="wrap-input100 validate-input mb-3">
-                <input
-                     className="input100 form-control" 
-                     type="password" 
-                     name="password" 
-                     placeholder="Password"
-                     value={form.password}
-                     onChange={onChange} />
-                <span className="focus-input100"></span>
-            </div>
-
-            <div className=" mb-3">
-                <div className="col"
-                     onClick={()=>toogleCheck()}>
-                    <input 
-                        className="input-checkbox100 form-control" 
-                        id="ckb1" 
-                        type="checkbox" 
-                        name="rememberMe"
-                        checked={form.rememberMe}
-                        readOnly
-
-                         />
-                    <label className="label-checkbox100">
-                        Recordarme
-                    </label>
-                </div>
-
-                <div className="col text-right">
-                    <Link to="/auth/register" className="txt1">
-                        Nueva cuenta?
-                    </Link>
-                </div>
-            </div>
-
-            <div className="container-login100-form-btn m-t-17">
-                <button type="submit" className="login100-form-btn" disabled={!todoOK()}>
-                    Ingresar
-                </button>
-            </div>
-
-        </form>
-                </div>
-                            </div>*/
+   
 <>
 <div className="mbsc-row container" >
         <div className="  avatarRegistro ocultar-div ">            
@@ -168,12 +99,26 @@ const todoOK=()=>{
     </div>
 
 </div>
+<div className="mbsc-row input">
+    <div className="mbsc-col-12 mbsc-col-md-6 mbsc-col-lg-3 " onClick={()=>toogleCheck()}>
+
+        <input 
+            className="input-checkbox100" 
+            id="ckb1" 
+            type="checkbox" 
+            name="rememberMe"
+            checked={form.rememberMe}
+            readOnly />
+                       <label className="label-checkbox100 responsive">
+                        Recordarme
+                 </label>
+    </div>
+
+</div>
 <div className="mbsc-row">
     <div className="mbsc-col-12 mbsc-col-md-12 mbsc-col-lg-3">
         <div className="mbsc-button-group-block">
-                <label className="label-checkbox100 responsive">
-                        Recordarme
-                 </label>
+     
               <div className="col text-right responsive">
                     <Link to="/auth/register" className="txt1">
                         Nueva cuenta?
