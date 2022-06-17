@@ -481,40 +481,7 @@ max-width: 100%;
 }
 
 
-@media (max-width: 992px) {
-  .alert-validate::before {
-    visibility: visible;
-    opacity: 1;
-  }
-}
 
- @media (max-width:700px) {
-   .alert {
-     font-size: 10px;
-   }
-
-   h3 {
-     font-size: 16px !important;
-     margin-top: 0px;
-   }
-
-   .form-group,
-   .obligatorio,
-   p,
-   input {
-     font-size: 10px !important;
-   }
- }
-
-@media screen and (max-width: 1000px) {
-  .ocultar-div {
-    display: none;
-  }
-  .responsive{
-      font-size: 10px;
-
-  }
-}
 
 /*//////////////////////////////////////////////////////////////////
 [ Responsive ]*/
