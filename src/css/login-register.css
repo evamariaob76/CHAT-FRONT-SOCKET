@@ -483,7 +483,7 @@ iframe {
   }
 }
 
-@media (max-width:500px) {
+@media (max-width:850px) {
   .alert {
     font-size: 10px;
   }
@@ -500,15 +500,16 @@ iframe {
     font-size: 15px !important;
   }
  .container {
-    width: 100px;
-    height: 100px;
+    width: 1450px;
+    height: 400px;
         }
+
 }
 
 @media screen and (max-width: 1000px) {
   .container{
-    width: 500px;
-      height: 400px;
+    width: 220px;
+      height: 450px;
   }
   .ocultar-div {
     display: none;

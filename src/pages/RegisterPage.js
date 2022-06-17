@@ -52,17 +52,19 @@ const onSubmit= async (e)=>{
 
 
     return (
-    <div className='container'>
+    <div className='container '>
+        <div className='row'> 
                 <div className="img ">            
 
-        <div className="row login100-form avatarRegistro ocultar-div">            
+        <div className="col-xs-12 col-sm-12 col-md-8 col-lg-12 login100-form  ">   
+        <img src ="https://res.cloudinary.com/drwgawhls/image/upload/v1655289112/chat/j8idqcxbbxwhcxymelpw.png" alt='imagenRegistro' className='img-fluid'/>         
         </div>
-
+</div>
         </div>
-              <div className=''>
-        <form className=" "
+            <div className='form-group row'>
+                <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+        <form className="login100-form validate-form flex-sb flex-w"
                onSubmit={onSubmit}>  
-                <div className='contenedor-registro'>             
             <span className="login100-form-title mb-3 responsive">
                  Registro
             </span>
@@ -118,13 +120,12 @@ const onSubmit= async (e)=>{
             <div className="container-login100-form-btn m-t-17">
                     <button type="submit" className="login100-form-btn responsive">
                         Crear cuenta
-                    </button>
+                </button>
             </div>
-            
-        </div>
 
         </form>
-        </div>
+                </div>
+    </div>
     </div>
     )
 }
