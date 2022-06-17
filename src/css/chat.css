@@ -290,3 +290,14 @@ textarea {
         object-position: center center;
     }
 }
+
+@media screen and (max-width: 1000px) {
+    .ocultar-div {
+        display: none;
+    }
+
+    .responsive {
+        font-size: 10px;
+
+    }
+}

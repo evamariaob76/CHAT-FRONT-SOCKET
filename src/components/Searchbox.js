@@ -21,7 +21,6 @@ const onFileInputChange= async({target})=>{
         const actualizarIMG= await actualizarAvatar(imagen)
 
         setImg(actualizarIMG);
-        console.log(img)
     } catch (error) {
         console.log(error);
 
@@ -35,9 +34,10 @@ const onFileInputChange= async({target})=>{
      <div className="container row " style={{boxShadow:'none',  width:'100%', background:'#f8f9fa'}}>
 
 
-            <div  className="contenedor chat col-6">
+            <div  className="contenedor chat col-6 responsive">
             <img src={img}style={{opacity:'0.7'}} alt={img}/>
-  <h3 className="centrado"style={{padding:'10px', fontSize:'30px', fontWeight:'bold'}}>{nombre.toUpperCase()}</h3>
+            <span className='responsive'>  <h3 className="centrado responsive"style={{padding:'10px', fontSize:'30px', fontWeight:'bold'}}>{nombre.toUpperCase()}</h3>
+</span>
          </div>
 
         <div className='col-3 '>
@@ -49,7 +49,7 @@ const onFileInputChange= async({target})=>{
 
         </div>
         <div className='col-3 '>                   
-             <button className="btn btn-danger centrado" onClick={logout} style={{fontSize:'13px', marginLeft:'10%'}}>
+             <button className="btn btn-danger centrado " onClick={logout} style={{fontSize:'13px', marginLeft:'10%'}}>
                         Salir
              </button>
         </div>

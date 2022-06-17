@@ -65,20 +65,20 @@ const todoOK=()=>{
     <div className='container'>
                 <div className="img ">            
 
-        <div className="row login100-form avatarRegistro ">            
+        <div className="row login100-form avatarRegistro ocultar-div">            
         </div>
 
         </div>
               <div className='form-group'>
         <form className="login100-form validate-form flex-sb flex-w"
                onSubmit={onSubmit}>
-            <span className="login100-form-title mb-3">
+            <span className="login100-form-title mb-3 responsive">
                  Ingreso
             </span>
 
             <div className="wrap-input100 validate-input mb-3">
                 <input 
-                    className="input100" 
+                    className="input100 responsive" 
                     type="email" 
                     name="email" 
                     placeholder="Email"
@@ -90,7 +90,7 @@ const todoOK=()=>{
 
             <div className="wrap-input100 validate-input mb-3">
                 <input
-                     className="input100" 
+                     className="input100 responsive" 
                      type="password" 
                      name="password" 
                      placeholder="Password"
@@ -111,20 +111,20 @@ const todoOK=()=>{
                         readOnly
 
                          />
-                    <label className="label-checkbox100">
+                    <label className="label-checkbox100 responsive">
                         Recordarme
                     </label>
                 </div>
 
                 <div className="col text-right">
-                    <Link to="/auth/register" className="txt1">
+                    <Link to="/auth/register" className="txt1 responsive">
                         Nueva cuenta?
                     </Link>
                 </div>
             </div>
 
             <div className="container-login100-form-btn m-t-17">
-                <button type="submit" className="login100-form-btn" disabled={!todoOK()}>
+                <button type="submit" className="login100-form-btn responsive" disabled={!todoOK()}>
                     Ingresar
                 </button>
             </div>
