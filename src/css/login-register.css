@@ -166,14 +166,16 @@ iframe {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 15px;
+  padding: 1%;
 
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   ;
 }
-
+.input{
+  padding: 2%;
+}
 
 .wrap-login100 {
   width: 30%;
@@ -201,10 +203,8 @@ iframe {
   margin: 15px auto;
   border-radius: 15px;
   border: 1px solid #999;
-  padding: 10px;
-  width: 160px;
+max-width: 100%;
   height: 140px;
-  background-size: 100%;
   background-repeat: no-repeat;
   background-image: url('https://res.cloudinary.com/drwgawhls/image/upload/v1655289112/chat/j8idqcxbbxwhcxymelpw.png');
   background-size: cover;
@@ -480,6 +480,7 @@ iframe {
   opacity: 1;
 }
 
+
 @media (max-width: 992px) {
   .alert-validate::before {
     visibility: visible;
@@ -487,6 +488,33 @@ iframe {
   }
 }
 
+ @media (max-width:700px) {
+   .alert {
+     font-size: 10px;
+   }
+
+   h3 {
+     font-size: 16px !important;
+     margin-top: 0px;
+   }
+
+   .form-group,
+   .obligatorio,
+   p,
+   input {
+     font-size: 10px !important;
+   }
+ }
+
+@media screen and (max-width: 1000px) {
+  .ocultar-div {
+    display: none;
+  }
+  .responsive{
+      font-size: 10px;
+
+  }
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ Responsive ]*/

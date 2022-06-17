@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import Fab from '@mui/material/Fab';
 
 import { fileUpload } from '../helpers/fileUpload';
+import {  Button } from '@mui/material';
 import AddIcon from '@material-ui/icons/Add';
 
 
@@ -44,6 +45,7 @@ const onSubmit= async (e)=>{
     const{nombre, email, password,img}= form;  
 
     const ok = await register(nombre,email, password, img);
+    console.log(register);
 
     if(!ok){
         Swal.fire('Error', 'Ya existe el usuario', 'error')
@@ -56,7 +58,7 @@ const onSubmit= async (e)=>{
     return( form.email.length > 0 && form.password.length >0 && form.nombre.length>0) ? true : false;
 }*/
     return (
-    <div className='container'>
+   /* <div className='container'>
                 <div className="img ">            
 
         <div className="row login100-form avatarRegistro ">            
@@ -96,12 +98,7 @@ const onSubmit= async (e)=>{
                     style={{ display: 'none' }}
                     name="img"
                 />
-                {/*<IconButton
-                    color="primary"
-                    onClick={ () => fileInputRef.current.click() }
-                > 
-                    <UploadOutlined />
-                </IconButton><span>Subir avatar</span>*/}
+   
                 <div>
 
 
@@ -128,6 +125,89 @@ const onSubmit= async (e)=>{
 
         </form>
         </div>
+    </div>*/
+    <>
+    <div className="mbsc-row container" >
+        <div className="  avatarRegistro ocultar-div ">            
+        </div>
+    <div className="mbsc-col-12 mbsc-col-md-6 mbsc-col-lg-3">
+            <span className="login100-form-title mb-3">
+                 REGISTRO
+            </span>
     </div>
+        <form className="login100-form validate-form flex-sb flex-w"
+               onSubmit={onSubmit}>
+        <div className="mbsc-col-12 mbsc-col-md-6 mbsc-col-lg-3 input" >
+        <input 
+            label="nombre" 
+            className=" form-control " 
+            type="nombre" 
+            name="nombre" 
+            placeholder="nombre"
+             value={form.nombre}
+            onChange={onChange}/>
+    </div>
+    <div className="mbsc-col-12 mbsc-col-md-6 mbsc-col-lg-3 input" >
+        <input 
+            label="Password" 
+            className=" form-control " 
+            type="email" 
+            name="email" 
+            placeholder="Email"
+             value={form.email}
+            onChange={onChange}/>
+    </div>
+
+<div className="mbsc-row input">
+    <div className="mbsc-col-12 mbsc-col-md-6 mbsc-col-lg-3 ">
+        <input 
+            className=" form-control input" 
+            type="password" 
+            name="password" 
+            placeholder="Password"
+            value={form.password}
+            onChange={onChange} />
+    </div>
+
+</div>
+<div className="mbsc-row input">
+    <div className="mbsc-col-12 mbsc-col-md-6 mbsc-col-lg-3 ">
+        <input 
+            type="file"
+            multiple
+            ref={ fileInputRef }
+            onChange={ onFileInputChange }
+            style={{ display: 'none' }}
+            name="img"
+            />
+    </div>
+
+</div>
+            <Fab size="small" style={{  margin: 20 }}color="secondary" aria-label="add" onClick={ () => fileInputRef.current.click() } >
+                <AddIcon />
+            </Fab><span >Subir avatar</span>
+<div className="mbsc-row">
+    <div className="mbsc-col-12 mbsc-col-md-12 mbsc-col-lg-3">
+        <div className="mbsc-button-group-block">
+      
+              <div className="col text-right responsive">
+              <Link to="/" className="txt1">
+                            Tienes cuenta?
+                </Link>
+                </div>        </div>
+    </div>
+    <div className="mbsc-col-12 mbsc-col-md-12 mbsc-col-lg-3">
+        <div className="mbsc-button-group-block">
+            <Button type="submit" className="login100-form-btn responsive-ingresar" >
+                                            Crear cuenta
+
+                </Button>
+         </div>
+    </div>
+</div></form>
+</div>
+
+    
+    </>
     )
 }
