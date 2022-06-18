@@ -65,7 +65,7 @@ const todoOK=()=>{
 
 
 
-    <div className='container-xxl  container 'style={{border:'1px solid red', margin:'0%', padding:'0%'}} id="">
+    <div className='container-xxl  container 'style={{ margin:'0%', padding:'0%'}} id="">
         <div className='form-group'> 
                 <div className="img ">            
 
@@ -115,15 +115,23 @@ const todoOK=()=>{
                         readOnly
 
                          />
-                    <label className="label-checkbox100 responsive">
-                        Recordarme
-                    </label>
                 </div>
+                         <div className='row '>
+                            <div style={{paddingLeft:'5%'}}></div>
+                                 <label className="label-checkbox100 responsive">
+                                    Recordarme
+                                </label>
+                            <div className= 'center-block' style={{paddingLeft:'0%'}}>
+                                <Link to="/auth/register" className="txt1 responsive">
+                                    Nueva cuenta?
+                                </Link>             
+                        </div>
+      
+                         </div>
+              
 
                 <div className="form-group">
-                    <Link to="/auth/register" className="txt1 responsive">
-                        Nueva cuenta?
-                    </Link>
+         
                 </div>
 
             <div className="center-block ">

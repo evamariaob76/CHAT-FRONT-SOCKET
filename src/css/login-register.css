@@ -13,11 +13,9 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  border: 1px solid blue;
   min-width: 100%;
   height: 100%;
   align-items: center!important;
-  display: flex;
 }
 
 
@@ -491,7 +489,8 @@ html, body{
       height: 42px;
     }
   
-    input {
+    body {
+        display: flex;
     }
   
     body {

@@ -52,7 +52,7 @@ const onSubmit= async (e)=>{
 
 
     return (
-    <div className='container  'style={{border:'1px solid red'}} id="container">
+    <div className='container  ' id="container">
         <div className='row'> 
                 <div className="img ">         
 
@@ -105,23 +105,18 @@ const onSubmit= async (e)=>{
 
 
                 </div>
-        <div className="col " >
 
-            <Fab size="small" style={{  margin: 20 }}color="secondary" aria-label="add" onClick={ () => fileInputRef.current.click() } >
-                <AddIcon />
-            </Fab><span className='responsive'>Subir avatar</span>
-            <div className='col text-right ' style={{marginBottom:'3%'}}>
-                <Link to="/" className="txt1 responsive">
-                            Tienes cuenta?
-                </Link>
-             </div>
-                         </div>
-
-            <div className="center-block ">
-                    <button type="submit" className="login100-form-btn responsive">
+                <div className='row 'style={{paddingLeft:'10%',alignItems:'center'}}>
+                    <Fab size="small" color="secondary" aria-label="add" onClick={ () => fileInputRef.current.click() } >
+                         <AddIcon />
+                    </Fab><span className='responsive'style={{paddingLeft:'2%'}}>Subir avatar</span>
+                            <div  className= 'center-block' style={{paddingLeft:'30%'}}>
+                                <Link to="/" className="txt1 responsive">
                         Crear cuenta
-                </button>
-            </div>
+                                </Link>             
+                        </div>
+      
+                         </div>
 
         </form>
                 </div>
