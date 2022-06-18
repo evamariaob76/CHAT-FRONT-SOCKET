@@ -111,12 +111,21 @@ const onSubmit= async (e)=>{
                          <AddIcon />
                     </Fab><span className='responsive'style={{paddingLeft:'2%'}}>Subir avatar</span>
                             <div  className= 'center-block' style={{paddingLeft:'30%'}}>
-                                <Link to="/" className="txt1 responsive">
-                        Crear cuenta
-                                </Link>             
-                        </div>
+                                            <div className='col text-right' style={{marginBottom:'3%'}}>
+                <Link to="/" className="txt1">
+                            Tienes cuenta?
+                </Link>
+             </div>
+       
+            </div>
       
-                         </div>
+         </div>
+            <div className="center-block " style={{paddingTop:'5%'}}>
+                <button type="submit" className="login100-form-btn responsive" >
+                    Crear cuenta
+                </button>
+            </div>
+
 
         </form>
                 </div>

@@ -121,7 +121,7 @@ const todoOK=()=>{
                                  <label className="label-checkbox100 responsive">
                                     Recordarme
                                 </label>
-                            <div className= 'center-block' style={{paddingLeft:'0%'}}>
+                            <div className= 'center-block' style={{paddingLeft:'30%'}}>
                                 <Link to="/auth/register" className="txt1 responsive">
                                     Nueva cuenta?
                                 </Link>             
@@ -130,11 +130,9 @@ const todoOK=()=>{
                          </div>
               
 
-                <div className="form-group">
-         
-                </div>
+   
 
-            <div className="center-block ">
+            <div className="center-block " style={{paddingTop:'5%'}}>
                 <button type="submit" className="login100-form-btn responsive" disabled={!todoOK()}>
                     Ingresar
                 </button>
