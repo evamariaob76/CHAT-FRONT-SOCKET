@@ -52,9 +52,9 @@ const onSubmit= async (e)=>{
 
 
     return (
-    <div className='container center-block '>
+    <div className='container  'style={{border:'1px solid red'}} id="container">
         <div className='row'> 
-                <div className="img ">            
+                <div className="img ">         
 
         <div className="col-xs-12 col-sm-12 col-md-8 col-lg-12 login100-form  ">   
         <img src ="https://res.cloudinary.com/drwgawhls/image/upload/v1655289112/chat/j8idqcxbbxwhcxymelpw.png" alt='imagenRegistro' className='img-fluid'/>         

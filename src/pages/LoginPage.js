@@ -65,24 +65,23 @@ const todoOK=()=>{
 
 
 
-    <div className='container  '>
-        <div className='row'> 
+    <div className='container text-center 'style={{border:'1px solid red'}} id="">
+        <div className='form-group'> 
                 <div className="img ">            
 
-        <div className="col-xs-12 col-sm-12 col-md-8 col-lg-12 login100-form  ">   
+        <div className='form-group'> 
         <img src ="https://res.cloudinary.com/drwgawhls/image/upload/v1655289112/chat/j8idqcxbbxwhcxymelpw.png" alt='imagenLogin' className='img-fluid'/>         
         </div>
 </div>
         </div>
-              <div className='form-group row'>
-                <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-        <form className="login100-form validate-form flex-sb flex-w"
+        <div className='form-group'> 
+        <form 
                onSubmit={onSubmit}>
             <span className="login100-form-title mb-3 responsive">
                  Ingreso
             </span>
 
-            <div className="wrap-input100 validate-input mb-3">
+            <div className="form-group">
                 <input 
                     className="input100 responsive" 
                     type="email" 
@@ -94,7 +93,7 @@ const todoOK=()=>{
             </div>
 
 
-            <div className="wrap-input100 validate-input mb-3">
+            <div className="form-group">
                 <input
                      className="input100 responsive" 
                      type="password" 
@@ -105,8 +104,7 @@ const todoOK=()=>{
                 <span className="focus-input100"></span>
             </div>
 
-            <div className=" mb-3">
-                <div className="col"
+                <div className="form-group"
                      onClick={()=>toogleCheck()}>
                     <input 
                         className="input-checkbox100" 
@@ -122,12 +120,11 @@ const todoOK=()=>{
                     </label>
                 </div>
 
-                <div className="col text-right">
+                <div className="form-group">
                     <Link to="/auth/register" className="txt1 responsive">
                         Nueva cuenta?
                     </Link>
                 </div>
-            </div>
 
             <div className="center-block ">
                 <button type="submit" className="login100-form-btn responsive" disabled={!todoOK()}>
@@ -136,10 +133,9 @@ const todoOK=()=>{
             </div>
 
         </form>
-                </div>
     </div>
     </div>
+    
 
-
-    )
+   )
 }
