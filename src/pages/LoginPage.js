@@ -65,7 +65,7 @@ const todoOK=()=>{
 
 
 
-    <div className='container text-center 'style={{border:'1px solid red'}} id="">
+    <div className='container-xxl  container 'style={{border:'1px solid red', margin:'0%', padding:'0%'}} id="">
         <div className='form-group'> 
                 <div className="img ">            
 
