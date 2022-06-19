@@ -242,12 +242,7 @@ textarea {
     text-align: center;
 }
 
-.centrado {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+
 
 .caja {
     display: flex;
@@ -278,16 +273,14 @@ textarea {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
-@supports(object-fit: cover) {
-    .box img {
-        height: 100%;
-        object-fit: cover;
-        object-position: center center;
+@media only screen and (max-width: 600px) and (min-width: 200px) {
+    button{
+        font-size: 7px;
     }
+    
 }
-
 @media screen and (max-width: 1000px) {
+
     .ocultar-div {
         display: none;
     }
@@ -296,4 +289,80 @@ textarea {
         font-size: 10px;
 
     }
+
+    .auth {
+        display: grid;
+    }
+
+
+    .grid {
+        grid-template-rows: 25fr 20fr 20fr;
+        display: grid;
+        align-content: space-around;
+        justify-content: start;
+        justify-items: center;
+    
+    }
+
+.chat{
+     max-width:none;
 }
+    .nombre {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: space-around;
+        align-items: flex-end;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+
+    hr {
+        display: none;
+    }
+
+    .botonResponsive {
+        margin-top: 2em
+    }
+
+
+
+    .row {
+        margin: 0%;
+    }
+
+    img {
+        display: flex;
+        left: 0px;
+        top: 0px;
+    }
+
+    .chat {
+        padding: 0%;
+        margin: 0%;
+    }
+
+    .responsive {
+        padding: 2px;
+    }
+
+    .responsive .imagen {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+    .centrado{
+        top:70%
+    }
+
+
+}
+@supports(object-fit: cover) {
+    .box img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+}
+
+

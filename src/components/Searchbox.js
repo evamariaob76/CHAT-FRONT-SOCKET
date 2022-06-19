@@ -5,12 +5,18 @@ import { fileUpload } from '../helpers/fileUpload';
 
 export const Searchbox = () => {
     const fileInputRef = useRef();
+    const style ={
+        borderRadius:40,
+        fontWeight:'bold'
+    }
+
 
     const {auth, logout,actualizarAvatar} = useContext(AuthContext);
 
     const [img, setImg] = useState(auth.img);
 
     const nombre = auth.nombre;
+
 
 const onFileInputChange= async({target})=>{
  
@@ -19,8 +25,11 @@ const onFileInputChange= async({target})=>{
         const imagen =await fileUpload(target.files)
         console.log(imagen)
         const actualizarIMG= await actualizarAvatar(imagen)
+        console.log(actualizarAvatar);
+                console.log(img);
 
         setImg(actualizarIMG);
+
     } catch (error) {
         console.log(error);
 
@@ -31,16 +40,13 @@ const onFileInputChange= async({target})=>{
     return (
 
 
-     <div className="container row " style={{boxShadow:'none',  width:'100%', background:'#f8f9fa'}}>
+     <div className="container row grid " style={{boxShadow:'none',  width:'100%', background:'#f8f9fa'}}>
+        <div  className="contenedor chat col-6 responsive grid-item">
+            <img src={img}style={{opacity:'0.7', width:'1000px'}} alt={img} className="imagen"/>
+            <span className='responsive'>  <h3 className="centrado responsive"style={{padding:'10px', fontSize:'30px', fontWeight:'bold'}}>{nombre.toUpperCase()}</h3></span>
+        </div>
 
-
-            <div  className="contenedor chat col-6 responsive">
-            <img src={img}style={{opacity:'0.7'}} alt={img}/>
-            <span className='responsive'>  <h3 className="centrado responsive"style={{padding:'10px', fontSize:'30px', fontWeight:'bold'}}>{nombre.toUpperCase()}</h3>
-</span>
-         </div>
-
-        <div className='col-3 '>
+        <div className='col-3 auth grid-item'>
 
                 <div className='centrado'>
                     <button name="img" href="#" className="btn btn-info  " style={{fontSize:'13px'}}onClick={ () => fileInputRef.current.click() }>Cambiar avatar</button>
@@ -48,7 +54,7 @@ const onFileInputChange= async({target})=>{
                 </div>
 
         </div>
-        <div className='col-3 '>                   
+        <div className='col-3 grid-item'>                   
              <button className="btn btn-danger centrado " onClick={logout} style={{fontSize:'13px', marginLeft:'10%'}}>
                         Salir
              </button>
@@ -64,16 +70,10 @@ const onFileInputChange= async({target})=>{
                     onChange={ onFileInputChange }
                     style={{ display: 'none' }}
                     name="img"
-                /></div>
-
-                        
+                /></div>         
               { /*<Fab size="small" style={{  margin: 20 }}color="secondary" aria-label="add" onClick={ () => fileInputRef.current.click() } >
                 <AddIcon />
-    </Fab><span >Cambiar</span>   */ }
-
-  
-                  
-                  
+    </Fab><span >Cambiar</span>   */ } 
         <hr />
     </div>
     )
