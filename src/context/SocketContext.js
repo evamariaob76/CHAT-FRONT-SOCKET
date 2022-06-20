@@ -41,16 +41,24 @@ export const SocketProvider = ({ children }) => {
 
     useEffect(() => {
         socket?.on('mensaje-personal', (mensaje)=>{
+            console.log(mensaje)
             dispatch({
                 type: types.nuevoMensaje,
-                payload:mensaje
+                payload:mensaje,
             });
            scrollToBottomAnimated('mensajes')
 
         })
-    }, [socket, dispatch]);
+    }, [socket, dispatch]);            
+const mensaje=   socket?.on('mensaje-personal', (mensaje)=>{
+                //console.log(mensaje)
+
+    return mensaje
+
+
+        })
     return (
-        <SocketContext.Provider value={{ socket, online }}>
+        <SocketContext.Provider value={{ socket, online , mensaje}}>
             { children }
         </SocketContext.Provider>
     )

@@ -5,23 +5,27 @@ import { scrollToBottom } from '../helpers/scrollToBottom'
 import { types } from '../types/types'
 import {Image} from 'cloudinary-react';
 
+
 export const SidebarChatItem = ({usuario}) => {
-    const {chatState,dispatch} = useContext(ChatContext)
-    const {chatActivo}= chatState;
+    const {chatState,dispatch} = useContext(ChatContext);
+
+
+ const {chatActivo}= chatState;
     const  onClick =async ()=>{
         dispatch({
             type: types.activarChat,
             payload:usuario.uid
         })
 
-       const resp =  await fetchConToken (`mensajes/${usuario.uid}`)
+       const resp =  await fetchConToken (`mensajes/${usuario.uid}`);
+
         dispatch ({
             type: types.cargarMensajes,
             payload:resp.mensajes
         });
         scrollToBottom("mensajes")
 }
-    
+ 
 
     return (
         <div className={`chat_list ${usuario.uid === chatActivo && 'active_chat'}`} onClick={onClick}>

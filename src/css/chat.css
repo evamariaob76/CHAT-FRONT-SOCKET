@@ -151,8 +151,6 @@ img {
 }
 
 .mesgs {
-    float: left;
-    width: 60%;
     height: 95%;
 }
 
@@ -163,12 +161,11 @@ img {
     margin: 0;
     color: #fff;
     padding: 5px 10px 5px 12px;
-    width: 100%;
 }
 
 .outgoing_msg {
     overflow: hidden;
-    margin: 26px 0 26px;
+    margin: 26px 0 26px 0px;
 }
 
 .sent_msg {
@@ -187,7 +184,7 @@ img {
 
 .type_msg {
     border-top: 1px solid #c4c4c4;
-    width: 220%;
+    width: 1220%;
     background-color: #f4f6f6;
 }
 
@@ -230,11 +227,9 @@ textarea {
 }
 
 .middle-screen {
-    position: absolute;
-    top: 30%;
-    right: 0;
-    width: 60%;
-    text-align: center;
+
+        text-align: center;
+        margin-top: 20%;
 }
 .contendor{
     position: relative;
@@ -277,6 +272,7 @@ textarea {
     button{
         font-size: 7px;
     }
+
     
 }
 @media screen and (max-width: 1000px) {
@@ -289,6 +285,9 @@ textarea {
         font-size: 10px;
 
     }
+    .msg_send_btn {
+        font-size: 13px !important;
+     }
 
     .auth {
         display: grid;
@@ -296,7 +295,7 @@ textarea {
 
 
     .grid {
-        grid-template-rows: 25fr 20fr 20fr;
+        grid-template-rows: 60fr 20fr 40fr;
         display: grid;
         align-content: space-around;
         justify-content: start;
@@ -354,8 +353,14 @@ textarea {
     .centrado{
         top:70%
     }
+.middle-screen {
 
-
+    text-align: center;
+    margin-top: 80%;
+}
+img {
+    max-width: 200%;
+}
 }
 @supports(object-fit: cover) {
     .box img {

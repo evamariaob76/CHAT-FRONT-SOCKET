@@ -15,6 +15,7 @@ export const SendMessage = () => {
 
     const onChange = ({ target }) => {
         setMensaje( target.value );
+
     }
 
 
@@ -36,12 +37,14 @@ export const SendMessage = () => {
             mensaje
         });
 
+
         // TODO: hacer el dispatch de el mensaje... 
 
     }
 
     return (
-        <form onSubmit={ onSubmit }>
+        <div className='row'>
+        <form onSubmit={ onSubmit } className='col-12'>
             <div className="type_msg ">
                 <div className="input_msg_write col-sm-9 ">
                     <input
@@ -52,12 +55,13 @@ export const SendMessage = () => {
                         onChange={ onChange }
                     />
                 </div>
-                <div className="col-sm-3 text-center">
+                <div className="row text-center" style={{paddingInlineStart:'1%'}}>
                     <button className="msg_send_btn mt-3" type="submit">
                         enviar
                     </button>
                 </div>
             </div>
         </form>
+    </div>
     )
 }

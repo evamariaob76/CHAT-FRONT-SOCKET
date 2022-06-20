@@ -1,5 +1,6 @@
 import React, { useContext,useRef, useState } from 'react';
-import { AuthContext } from '../auth/AuthContext'
+import { AuthContext } from '../auth/AuthContext';
+import { fileDelete } from '../helpers/fileDelete';
 import { fileUpload } from '../helpers/fileUpload';
 
 
@@ -12,21 +13,21 @@ export const Searchbox = () => {
 
 
     const {auth, logout,actualizarAvatar} = useContext(AuthContext);
+    console.log(auth.img)
 
-    const [img, setImg] = useState(auth.img);
+    const [imagen, setImg] = useState(auth.img);
 
     const nombre = auth.nombre;
 
 
 const onFileInputChange= async({target})=>{
- 
+         fileDelete(auth.img)
+
     if(target.files===0)return;
     try {
-        const imagen =await fileUpload(target.files)
+        const imagen =await fileUpload(target.files);
         console.log(imagen)
         const actualizarIMG= await actualizarAvatar(imagen)
-        console.log(actualizarAvatar);
-                console.log(img);
 
         setImg(actualizarIMG);
 
@@ -42,7 +43,7 @@ const onFileInputChange= async({target})=>{
 
      <div className="container row grid " style={{boxShadow:'none',  width:'100%', background:'#f8f9fa'}}>
         <div  className="contenedor chat col-6 responsive grid-item">
-            <img src={img}style={{opacity:'0.7', width:'1000px'}} alt={img} className="imagen"/>
+            <img src={imagen}style={{opacity:'0.7', width:'1000px'}} alt={imagen} className="imagen"/>
             <span className='responsive'>  <h3 className="centrado responsive"style={{padding:'10px', fontSize:'30px', fontWeight:'bold'}}>{nombre.toUpperCase()}</h3></span>
         </div>
 
