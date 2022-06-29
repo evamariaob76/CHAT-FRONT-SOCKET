@@ -7,7 +7,13 @@ const initialState ={
     uid:'',
     chatActivo:null,
     usuarios:[],
-    mensajes:[]
+    mensajes:[],
+    Noleidos:[],
+    totalMensajes:'',
+    actualizar:[],
+    
+
+
 }
 
 

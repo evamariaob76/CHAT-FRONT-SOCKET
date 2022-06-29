@@ -6,33 +6,28 @@ import { fileUpload } from '../helpers/fileUpload';
 
 export const Searchbox = () => {
     const fileInputRef = useRef();
-    const style ={
-        borderRadius:40,
-        fontWeight:'bold'
-    }
+
 
 
     const {auth, logout,actualizarAvatar} = useContext(AuthContext);
-    console.log(auth.img)
-
     const [imagen, setImg] = useState(auth.img);
 
     const nombre = auth.nombre;
 
 
-const onFileInputChange= async({target})=>{
-         fileDelete(auth.img)
+    const onFileInputChange= async({target})=>{
+        fileDelete(auth.img)
 
-    if(target.files===0)return;
-    try {
-        const imagen =await fileUpload(target.files);
-        console.log(imagen)
-        const actualizarIMG= await actualizarAvatar(imagen)
+        if(target.files===0)return;
+        try {
+            const imagen =await fileUpload(target.files);
+            console.log(imagen)
+            const actualizarIMG= await actualizarAvatar(imagen)
 
-        setImg(actualizarIMG);
+            setImg(actualizarIMG);
 
-    } catch (error) {
-        console.log(error);
+        } catch (error) {
+            console.log(error);
 
     }
   
@@ -43,8 +38,14 @@ const onFileInputChange= async({target})=>{
 
      <div className="container row grid " style={{boxShadow:'none',  width:'100%', background:'#f8f9fa'}}>
         <div  className="contenedor chat col-6 responsive grid-item">
-            <img src={imagen}style={{opacity:'0.7', width:'1000px'}} alt={imagen} className="imagen"/>
-            <span className='responsive'>  <h3 className="centrado responsive"style={{padding:'10px', fontSize:'30px', fontWeight:'bold'}}>{nombre.toUpperCase()}</h3></span>
+            {
+                imagen
+                ? <img src={imagen}style={{opacity:'0.7', width:'1000px'}} alt={imagen} className="imagen"/>
+
+                :  <img src="https://res.cloudinary.com/drwgawhls/image/upload/v1656148114/chat/avatar_xehcv6.png"style={{opacity:'0.7', width:'1000px', borderRadius:'50%'}} alt={imagen} className="imagen"/>
+
+            }
+            <span className='responsive'>  <h3 className="centrado responsive"style={{padding:'10px', fontSize:'30px', fontWeight:'bold',borderRadius:'50%'}}>{nombre.toUpperCase()}</h3></span>
         </div>
 
         <div className='col-3 auth grid-item'>

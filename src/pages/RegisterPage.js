@@ -120,7 +120,7 @@ const onSubmit= async (e)=>{
             </div>
       
          </div>
-            <div className="center-block " style={{paddingTop:'5%'}}>
+            <div className="center-block " style={{paddingTop:'20px'}}>
                 <button type="submit" className="login100-form-btn responsive" >
                     Crear cuenta
                 </button>

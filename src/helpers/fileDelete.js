@@ -4,7 +4,7 @@
 export const fileDelete = async( file ) => {
     if ( !file ) throw new Error('No tenemos ningúna archivo a borrar');
     
-    const cloudUrl="https://api.cloudinary.com/v1_1/drwgawhls/images/upload";
+    //const cloudUrl="https://api.cloudinary.com/v1_1/drwgawhls/images/upload";
 
 
     const formData = new FormData();

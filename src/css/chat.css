@@ -268,6 +268,17 @@ textarea {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.icono, .chat_img{
+
+    display: grid;
+    place-content: center;
+}
+
+.chat-izquierda{
+    margin-left: 5%;
+    margin-right: 5%;
+}
 @media only screen and (max-width: 600px) and (min-width: 200px) {
     button{
         font-size: 7px;

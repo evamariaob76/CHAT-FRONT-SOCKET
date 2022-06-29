@@ -9,7 +9,7 @@ import '../css/chat.css';
 
 export const ChatPage = () => {
 
-    const { chatState } = useContext( ChatContext );
+    const { chatState} = useContext( ChatContext );
 
     return (
         <div className="messaging   "   >

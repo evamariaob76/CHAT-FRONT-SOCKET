@@ -14,6 +14,7 @@ export const chatReducer = ( state, action ) => {
             }
         
         case types.usuariosCargados:
+
             return {
                 ...state,
                 usuarios: [ ...action.payload ]
@@ -30,9 +31,13 @@ export const chatReducer = ( state, action ) => {
 
 
         case types.nuevoMensaje:
+            
+
             if ( state.chatActivo === action.payload.de || 
                  state.chatActivo === action.payload.para   
-            ) {
+            )
+            
+            {
                 return {
                     ...state,
                     mensajes: [ ...state.mensajes, action.payload ]
@@ -42,11 +47,51 @@ export const chatReducer = ( state, action ) => {
             }
 
         case types.cargarMensajes:
+
             return {
                 ...state,
                 mensajes: [ ...action.payload ]
             }
+        case types.Noleidos:
+                    
+ 
+                return {
+                   ...state,
+                   usuario:{...action.payload}
+                }
+            
+
     
+        
+        case types.totalMensajes:
+            return {
+                ...state,
+                totalMensajes:[...action.payload ]
+            } 
+
+
+      /* case types.actualizarMensajesLeidos:
+            console.log(state.chatActivo)
+                        console.log(action.payload)
+                        console.log(action)
+                        console.log(state)
+
+            return {
+                ...state,
+                chatActivo: action.payload,
+            }*/
+
+           /* if ( state.chatActivo === action.payload) {
+                return {
+                    ...state,
+                    Noleidos: [ action.payload ]
+                }
+            } else {
+                return state;
+            }*/
+
+
+
         default:
             return state;
     }

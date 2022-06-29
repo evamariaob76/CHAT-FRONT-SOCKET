@@ -14,7 +14,8 @@ const initialState ={
     logged:false,
     nombre:null,
     email:null,
-    img:null
+    img:null,
+    mensajesTotales:0
 };
 
 
@@ -120,8 +121,13 @@ export const AuthProvider = ({children}) => {
                 img:resp.img
         })
         return resp.img
+
+
   
-    }
+    
+  
+}
+
   return (
     <AuthContext.Provider value={{
         auth,
@@ -129,7 +135,8 @@ export const AuthProvider = ({children}) => {
         register,
         verificarToken,
         logout,
-        actualizarAvatar
+        actualizarAvatar,
+        
     }}>
             {children}
 

@@ -5,22 +5,23 @@ import { ChatContext } from '../context/chat/ChatContext';
 import { SocketContext } from '../context/SocketContext';
 
 export const SendMessage = () => {
-
+    const {chatState} = useContext(ChatContext)
     const [ mensaje, setMensaje ] = useState('');
-
     const { socket } = useContext( SocketContext );
     const { auth } = useContext( AuthContext );
-    const { chatState } = useContext( ChatContext );
 
+
+        //console.log(chatState.mensajesSinLeer)
 
     const onChange = ({ target }) => {
-        setMensaje( target.value );
+    setMensaje( target.value );
 
     }
 
 
     const onSubmit = (ev) => {
         ev.preventDefault();
+
 
         if ( mensaje.length === 0 ){ return; }
         setMensaje('');
@@ -34,9 +35,9 @@ export const SendMessage = () => {
         socket.emit( 'mensaje-personal', {
             de: auth.uid,
             para: chatState.chatActivo,
-            mensaje
+           mensaje,
+            //msgNoLeidos: mensaje.length,
         });
-
 
         // TODO: hacer el dispatch de el mensaje... 
 

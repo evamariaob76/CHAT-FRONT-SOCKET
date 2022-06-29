@@ -9,7 +9,12 @@ export const IncomingMessage = ({msg}) => {
     return (
         <div className="incoming_msg" >
             <div className="incoming_msg_img">
-                <img src={auth.img} alt="sunil" />
+                {
+                    auth.img
+                    ? <img src={auth.img} alt={auth.nombre}  style={{borderRadius:'50%', border:'1 px solid grey'}}/>
+                    : <img src="https://res.cloudinary.com/drwgawhls/image/upload/v1656148114/chat/avatar_xehcv6.png" alt={auth.nombre} style={{borderRadius:'50%', border:'1 px solid grey'}}/>
+                }
+               
             </div>
             <div className="received_msg">
                 <div className="received_withd_msg">

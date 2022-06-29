@@ -4,6 +4,10 @@ export const types ={
     usuariosCargados:'[Chat] Usuarios Cargados',
     activarChat:'[Chat] Activar chat',
     nuevoMensaje:'[Chat] Nuevo mensaje',
-    cargarMensajes:'[Chat] Cargar Mensajes',
-    cerrarSesión:['Chat Cerrar Sesión' ]
+    totalMensajes:['Chat Total Mensajes' ],
+    Noleidos:['Chat No Leidos' ],
+    cerrarSesión:['Chat Cerrar Sesión' ],
+
+
+
 }

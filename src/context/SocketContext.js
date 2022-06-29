@@ -10,8 +10,7 @@ export const SocketContext = createContext();
 
 
 export const SocketProvider = ({ children }) => {
-
-    //const { socket, online, conectarSocket, desconectarSocket } = useSocket('http://localhost:8080');
+   // const { socket, online, conectarSocket, desconectarSocket } = useSocket('http://localhost:8080');
     const { socket, online, conectarSocket, desconectarSocket } = useSocket('https://chat-backend-socket.herokuapp.com');
 
     
@@ -31,7 +30,9 @@ export const SocketProvider = ({ children }) => {
     }, [ auth, desconectarSocket ]);
 
     useEffect(() => {
-        socket?.on('lista-usuarios', (usuarios)=>{
+
+        socket?.on('lista-usuarios', (usuarios)=>{                   
+
             dispatch({
                 type:types.usuariosCargados,
                 payload:usuarios
@@ -41,7 +42,7 @@ export const SocketProvider = ({ children }) => {
 
     useEffect(() => {
         socket?.on('mensaje-personal', (mensaje)=>{
-            console.log(mensaje)
+
             dispatch({
                 type: types.nuevoMensaje,
                 payload:mensaje,
@@ -50,13 +51,38 @@ export const SocketProvider = ({ children }) => {
 
         })
     }, [socket, dispatch]);            
-const mensaje=   socket?.on('mensaje-personal', (mensaje)=>{
-                //console.log(mensaje)
+        const mensaje=   socket?.on('mensaje-personal', (mensaje)=>{
+        return mensaje
+        })
 
-    return mensaje
 
+   useEffect(() => {
+        socket?.on('totalMensajes', (uid)=>{
+            dispatch({
+                type:types.totalMensajes,
+                payload:uid
+            })
+     
+        }) }, [socket, dispatch]);
+           
+
+    useEffect(() => {
+        socket?.on('actualizarMensajes', (usuario)=>{
+            dispatch({
+                type: types.Noleidos,
+                payload:usuario,
+            });
+           scrollToBottomAnimated('mensajes')
 
         })
+    }, [socket, dispatch]);            
+        //const mensaje=   socket?.on('mensaje-personal', (mensaje)=>{
+       // return mensaje
+        //})
+
+
+
+
     return (
         <SocketContext.Provider value={{ socket, online , mensaje}}>
             { children }
