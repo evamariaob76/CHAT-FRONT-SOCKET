@@ -52,22 +52,7 @@ export const chatReducer = ( state, action ) => {
                 ...state,
                 mensajes: [ ...action.payload ]
             }
-        case types.Noleidos:
-                    
- 
-                return {
-                   ...state,
-                   usuario:{...action.payload}
-                }
             
-
-    
-        
-        case types.totalMensajes:
-            return {
-                ...state,
-                totalMensajes:[...action.payload ]
-            } 
 
 
       /* case types.actualizarMensajesLeidos:

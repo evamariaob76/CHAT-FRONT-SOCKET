@@ -56,32 +56,6 @@ export const SocketProvider = ({ children }) => {
         })
 
 
-   useEffect(() => {
-        socket?.on('totalMensajes', (uid)=>{
-            dispatch({
-                type:types.totalMensajes,
-                payload:uid
-            })
-     
-        }) }, [socket, dispatch]);
-           
-
-    useEffect(() => {
-        socket?.on('actualizarMensajes', (usuario)=>{
-            dispatch({
-                type: types.Noleidos,
-                payload:usuario,
-            });
-           scrollToBottomAnimated('mensajes')
-
-        })
-    }, [socket, dispatch]);            
-        //const mensaje=   socket?.on('mensaje-personal', (mensaje)=>{
-       // return mensaje
-        //})
-
-
-
 
     return (
         <SocketContext.Provider value={{ socket, online , mensaje}}>
