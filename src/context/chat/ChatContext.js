@@ -7,16 +7,13 @@ const initialState ={
     uid:'',
     chatActivo:null,
     usuarios:[],
-    mensajes:[],
-    
-
-
+    mensajes:[]
 }
 
 
 export const ChatProvider = ({children}) => {
 
-  const [chatState, dispatch] = useReducer(chatReducer, initialState)
+    const [chatState, dispatch] = useReducer(chatReducer, initialState)
   return (
     <ChatContext.Provider value ={{chatState, dispatch}}>
         {children}

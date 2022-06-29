@@ -11,7 +11,6 @@ export const Searchbox = () => {
 
     const {auth, logout,actualizarAvatar} = useContext(AuthContext);
     const [imagen, setImg] = useState(auth.img);
-console.log(imagen.length)
 
     const nombre = auth.nombre;
 

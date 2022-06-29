@@ -1,5 +1,4 @@
-import React, { useContext, useEffect } from 'react';
-import { createContext } from 'react';
+import { createContext, useContext, useEffect } from 'react';
 import { AuthContext } from '../auth/AuthContext';
 import { scrollToBottomAnimated } from '../helpers/scrollToBottom';
 import { useSocket } from '../hooks/useSocket'
@@ -10,7 +9,8 @@ export const SocketContext = createContext();
 
 
 export const SocketProvider = ({ children }) => {
-   // const { socket, online, conectarSocket, desconectarSocket } = useSocket('http://localhost:8080');
+
+    //const { socket, online, conectarSocket, desconectarSocket } = useSocket('http://localhost:8080');
     const { socket, online, conectarSocket, desconectarSocket } = useSocket('https://chat-backend-socket.herokuapp.com');
 
     
@@ -30,9 +30,7 @@ export const SocketProvider = ({ children }) => {
     }, [ auth, desconectarSocket ]);
 
     useEffect(() => {
-
-        socket?.on('lista-usuarios', (usuarios)=>{                   
-
+        socket?.on('lista-usuarios', (usuarios)=>{
             dispatch({
                 type:types.usuariosCargados,
                 payload:usuarios
@@ -42,23 +40,16 @@ export const SocketProvider = ({ children }) => {
 
     useEffect(() => {
         socket?.on('mensaje-personal', (mensaje)=>{
-
             dispatch({
                 type: types.nuevoMensaje,
-                payload:mensaje,
+                payload:mensaje
             });
            scrollToBottomAnimated('mensajes')
 
         })
-    }, [socket, dispatch]);            
-        const mensaje=   socket?.on('mensaje-personal', (mensaje)=>{
-        return mensaje
-        })
-
-
-
+    }, [socket, dispatch]);
     return (
-        <SocketContext.Provider value={{ socket, online , mensaje}}>
+        <SocketContext.Provider value={{ socket, online }}>
             { children }
         </SocketContext.Provider>
     )

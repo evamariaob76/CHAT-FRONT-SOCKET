@@ -14,7 +14,6 @@ export const chatReducer = ( state, action ) => {
             }
         
         case types.usuariosCargados:
-
             return {
                 ...state,
                 usuarios: [ ...action.payload ]
@@ -31,13 +30,9 @@ export const chatReducer = ( state, action ) => {
 
 
         case types.nuevoMensaje:
-            
-
             if ( state.chatActivo === action.payload.de || 
                  state.chatActivo === action.payload.para   
-            )
-            
-            {
+            ) {
                 return {
                     ...state,
                     mensajes: [ ...state.mensajes, action.payload ]
@@ -46,7 +41,12 @@ export const chatReducer = ( state, action ) => {
                 return state;
             }
 
-
+        case types.cargarMensajes:
+            return {
+                ...state,
+                mensajes: [ ...action.payload ]
+            }
+    
         default:
             return state;
     }
