@@ -46,36 +46,6 @@ export const chatReducer = ( state, action ) => {
                 return state;
             }
 
-        case types.cargarMensajes:
-
-            return {
-                ...state,
-                mensajes: [ ...action.payload ]
-            }
-            
-
-
-      /* case types.actualizarMensajesLeidos:
-            console.log(state.chatActivo)
-                        console.log(action.payload)
-                        console.log(action)
-                        console.log(state)
-
-            return {
-                ...state,
-                chatActivo: action.payload,
-            }*/
-
-           /* if ( state.chatActivo === action.payload) {
-                return {
-                    ...state,
-                    Noleidos: [ action.payload ]
-                }
-            } else {
-                return state;
-            }*/
-
-
 
         default:
             return state;
