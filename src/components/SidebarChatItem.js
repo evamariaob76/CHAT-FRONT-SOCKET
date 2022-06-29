@@ -35,7 +35,6 @@ export const SidebarChatItem =  ({usuario}) => {
         if(commits.de === usuario.uid){
             settotales(0)
             console.log('ok')
-            return
 }
     dispatch({   
             type: types.activarChat,
