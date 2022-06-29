@@ -1,6 +1,5 @@
 import React, { useContext,useRef, useState } from 'react';
 import { AuthContext } from '../auth/AuthContext';
-//import { fileDelete } from '../helpers/fileDelete';
 import { fileUpload } from '../helpers/fileUpload';
 
 
@@ -16,7 +15,6 @@ export const Searchbox = () => {
 
 
     const onFileInputChange= async({target})=>{
-       // fileDelete(auth.img)
 
         if(target.files===0)return;
         try {

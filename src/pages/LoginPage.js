@@ -60,10 +60,7 @@ const toogleCheck= ()=>{
 const todoOK=()=>{
     return( form.email.length > 0 && form.password.length >0) ? true : false;
 }
-
     return (
-
-
 
     <div className='container-xxl  container 'style={{ margin:'0%', padding:'0%'}} id="">
         <div className='form-group'> 

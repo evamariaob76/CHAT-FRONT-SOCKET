@@ -37,8 +37,6 @@ export const SidebarChatItem =  ({usuario}) => {
             console.log('ok')
             return
 }
-    
-    
     dispatch({   
             type: types.activarChat,
             payload:usuario.uid
@@ -55,7 +53,6 @@ export const SidebarChatItem =  ({usuario}) => {
             payload:usuario
         });
         scrollToBottom("mensajes")
-
 }
 
     useEffect(() => {
@@ -73,17 +70,6 @@ const onLoad =async()=>{
         let commits = await respuesta.json(respuesta);
         settotales(commits.mensajesNoLeidos)
 
-
-
-    /*if(totalMensajes){
-        const result =  Object.values(totalMensajes).filter((msg)=>{
-
-            if(msg.para ===auth.uid && msg.de === usuario.uid)  {
-                return msg
-            }               
-});          settotales(result.length)
-
-    }*/
 }
 
 

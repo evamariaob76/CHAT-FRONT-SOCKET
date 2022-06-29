@@ -10,9 +10,6 @@ export const SendMessage = () => {
     const { socket } = useContext( SocketContext );
     const { auth } = useContext( AuthContext );
 
-
-        //console.log(chatState.mensajesSinLeer)
-
     const onChange = ({ target }) => {
     setMensaje( target.value );
 
