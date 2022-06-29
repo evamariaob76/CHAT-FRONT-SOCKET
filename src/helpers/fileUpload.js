@@ -3,6 +3,7 @@
 export const fileUpload = async( file ) => {
     if ( !file ) throw new Error('No tenemos ningúna archivo a subir');
     
+    //const cloudUrl="https://api.cloudinary.com/v1_1/drwgawhls/upload";
     const cloudUrl="https://api.cloudinary.com/v1_1/drwgawhls/image/upload";
 
     const formData = new FormData();
@@ -24,8 +25,7 @@ export const fileUpload = async( file ) => {
 
         if ( !resp.ok ) throw new Error('No se pudo subir imagen')
         const cloudResp = await resp.json();
-            console.log(cloudResp);
-            console.log(cloudResp.url)
+
         return cloudResp.secure_url;
 
     } catch (error) {
