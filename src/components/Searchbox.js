@@ -11,6 +11,7 @@ export const Searchbox = () => {
 
     const {auth, logout,actualizarAvatar} = useContext(AuthContext);
     const [imagen, setImg] = useState(auth.img);
+console.log(imagen.length)
 
     const nombre = auth.nombre;
 
@@ -39,7 +40,7 @@ export const Searchbox = () => {
      <div className="container row grid " style={{boxShadow:'none',  width:'100%', background:'#f8f9fa'}}>
         <div  className="contenedor chat col-6 responsive grid-item">
             {
-                imagen
+                imagen.length>0
                 ? <img src={imagen}style={{opacity:'0.7', width:'1000px'}} alt={imagen} className="imagen"/>
 
                 :  <img src="https://res.cloudinary.com/drwgawhls/image/upload/v1656148114/chat/avatar_xehcv6.png"style={{opacity:'0.7', width:'1000px', borderRadius:'50%'}} alt={imagen} className="imagen"/>
