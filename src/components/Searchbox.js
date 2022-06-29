@@ -60,9 +60,6 @@ export const Searchbox = () => {
              </button>
         </div>
 
-
-
-                   { /*<img className="card-img rounded-pill " id="imagen" src={img} alt={img} />*/}
                     <div> <input 
                     type="file"
                     multiple
@@ -71,9 +68,7 @@ export const Searchbox = () => {
                     style={{ display: 'none' }}
                     name="img"
                 /></div>         
-              { /*<Fab size="small" style={{  margin: 20 }}color="secondary" aria-label="add" onClick={ () => fileInputRef.current.click() } >
-                <AddIcon />
-    </Fab><span >Cambiar</span>   */ } 
+
         <hr />
     </div>
     )
