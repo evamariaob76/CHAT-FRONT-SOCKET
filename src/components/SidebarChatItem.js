@@ -93,6 +93,7 @@ const onLoad =async()=>{
             {/* active_chat */}
             <div className="chat_people row">
                 <div className="chat_img"> 
+                <span>contador</span>
                 { usuario.img
                 ?  <Image cloudName="drwgawhls"  upload_preset="chatEva" publicId={usuario.img} style={{borderRadius:'50%', border:'1 px solid grey'}}> 
    
@@ -117,7 +118,7 @@ const onLoad =async()=>{
                
                        <Badge badgeContent={totales} color="primary"  >
                             <MailIcon color="action" />
-                        </Badge> 
+                        </Badge> contador
 
                     </div>                               
                 </div>
