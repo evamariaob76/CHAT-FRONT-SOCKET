@@ -139,8 +139,8 @@ console.log(auth.uid +'authuid')
                      
                     
                 
-                         <Badge badgeContent={totales} color="warning" sx={badgeStyle}  >
-                            <MailIcon color="action" />
+                         <Badge badgeContent={totales} color="primary"  >
+                            <MailIcon color="action"/>
                         </Badge> 
                  
                       

@@ -217,6 +217,13 @@ h4, .online{
 .search-bar:focus,
 .write_msg:focus {
     outline: none;
+
+}
+.write_msg{
+      
+        background: #fff;
+        margin: 0 auto;
+        width: 100%
 }
 
 textarea {

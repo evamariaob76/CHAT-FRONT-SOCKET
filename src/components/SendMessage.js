@@ -81,7 +81,7 @@ const Onclick =async()=>{
                         placeholder="Mensaje..."
                         value={ mensaje }
                         onChange={ onChange }
-                        style={{width:'100%'}}
+                       
                     />
                 </div>
                 <div className="row text-center" style={{paddingInlineStart:'1%'}}>
