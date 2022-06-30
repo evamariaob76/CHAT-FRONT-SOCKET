@@ -1,7 +1,7 @@
 
 
 img {
-    max-width: 100%;
+    max-width: 50%;
 }
 
 .inbox_people {
@@ -67,15 +67,17 @@ img {
 .srch_bar .input-group-addon {
     margin: 0 0 0 -27px;
 }
-
+h4, .online{
+    padding-bottom: 5%;
+}
 .chat_ib h5 {
-    font-size: 15px;
+    font-size: 18px;
     color: #464646;
     margin: 0 0 8px 0;
 }
 
 .chat_ib h5 span {
-    font-size: 13px;
+    font-size: 18px;
     float: right;
 }
 
@@ -179,7 +181,6 @@ img {
     color: #4c4c4c;
     font-size: 15px;
     min-height: 48px;
-    width: 120%;
 }
 
 .type_msg {

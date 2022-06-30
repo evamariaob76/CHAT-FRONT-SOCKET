@@ -34,7 +34,7 @@ export const Searchbox = () => {
     return (
 
 
-     <div className="container row grid " style={{boxShadow:'none',  width:'100%', background:'#f8f9fa'}}>
+     <div className="container row grid " style={{boxShadow:'none',  width:'100%', height:'100%', background:'#f8f9fa'}}>
         <div  className="contenedor chat col-6 responsive grid-item">
             {
                 imagen.length>0

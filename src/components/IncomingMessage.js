@@ -1,11 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext,useState } from 'react'
 import { AuthContext } from '../auth/AuthContext';
 import { horaMes } from '../helpers/horaMes';
 
 export const IncomingMessage = ({msg}) => {
-        const {auth} = useContext(AuthContext);
+    const {auth} = useContext(AuthContext);
 
-    
+
+
     return (
         <div className="incoming_msg" >
             <div className="incoming_msg_img">

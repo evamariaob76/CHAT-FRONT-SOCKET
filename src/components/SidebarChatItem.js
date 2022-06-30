@@ -11,31 +11,45 @@ import MailIcon from '@mui/icons-material/Mail';
 import { AuthContext } from '../auth/AuthContext';
 import { createContext } from 'react';
 
+
+const badgeStyle = {
+  "& .MuiBadge-badge": {
+    width: 350,
+    height: 250,
+    borderRadius: '50%'
+  }
+}
 export const SocketContext = createContext();
 
+
 export const SidebarChatItem =  ({usuario}) => {
-    const {auth} = useContext(AuthContext);
     const {chatState,dispatch} = useContext(ChatContext);
     const {chatActivo}= chatState;
-    const [totales, settotales] = useState(0)
+    const [totales, settotales] = useState(0);
+    const { auth } = useContext( AuthContext );
     const baseUrl = process.env.REACT_APP_API_URL;
+  console.log(chatActivo+'inicio')   
 
-    
+  console.log(chatActivo+'chatactivo')   
+  console.log(usuario.uid)
+  console.log(chatState.chatActivo+'state')
+
+
+
+
     const  onClick =async ()=>{
     
      const url = `${baseUrl}/mensajes/actualizar/${auth.uid}/${usuario.uid}`;
      const totalLeidios = `${baseUrl}/mensajes/totalLeidos/${auth.uid}/${usuario.uid}`;
-     
+         console.log(chatActivo + 'click')
+
      await fetch(url);
 
-    const respuesta=await fetch(totalLeidios)
-    let commits = await respuesta.json(totalLeidios);
+        const respuesta=await fetch(totalLeidios)
+        let commits = await respuesta.json(totalLeidios);
 
 
-        if(commits.de === usuario.uid){
-            settotales(0)
-            console.log('ok')
-}
+
     dispatch({   
             type: types.activarChat,
             payload:usuario.uid
@@ -63,18 +77,40 @@ export const SidebarChatItem =  ({usuario}) => {
     
 
 const onLoad =async()=>{
+console.log(chatActivo)
+console.log(usuario.uid)
+console.log(auth.uid +'authuid')
+  console.log(chatState.chatActivo+'state')
+
+   /* if(chatActivo === usuario.uid ){
+        console.log('seteando')
+            settotales(0)
+}*/
+
+    console.log(chatActivo + 'alcargar')
 
         const totalNoLeidos = `${baseUrl}/mensajes/totalNoLeidos/${auth.uid}/${usuario.uid}`;
         const respuesta=await fetch(totalNoLeidos)
         let commits = await respuesta.json(respuesta);
-        settotales(commits.mensajesNoLeidos)
+
+        
+       if(commits.de ===chatActivo && commits.para ===auth.uid  ){
+            settotales(0)
+
+        }
+        else{
+                    console.log(commits)
+            settotales(commits.mensajesNoLeidos)
+
+        }
+
 
 }
 
 
     return (
-        <div onLoad={onLoad} className='row chat-izquierda'>
-        <div  className={`col-12 chat_list ${usuario.uid === chatActivo && 'active_chat'}` } onClick={onClick}>
+        <div onLoad={onLoad} className='row chat-izquierda'onClick={onClick}>
+        <div  className={`col-12 chat_list ${usuario.uid === chatActivo && 'active_chat'}` } >
             {/* active_chat */}
             <div className="chat_people row">
                 <div className="chat_img"> 
@@ -90,19 +126,24 @@ const onLoad =async()=>{
                 </div>
                 <div className="chat_ib row" >
                     <div className='col-6' >
-                    <h5>{usuario.nombre}</h5>
+                    <h4>{usuario.nombre}</h4>
                     {usuario.online
                     ?
-                    <span className="text-success">Online</span>
+                    <span className="text-success online">Online</span>
                     :
-                    <span className="text-danger">Offline</span>
+                    <span className="text-danger online">Offline</span>
                     }
                     </div>
                     <div className='col-6 icono' >     
-               
-                       <Badge badgeContent={totales} color="primary"  >
+            
+                     
+                    
+                
+                         <Badge badgeContent={totales} color="warning" sx={badgeStyle}  >
                             <MailIcon color="action" />
                         </Badge> 
+                 
+                      
 
                     </div>                               
                 </div>
