@@ -69,10 +69,10 @@ const Onclick =async()=>{
 }
 
     return (
-        <div className='row row-chat' >
+        <div className='row'  >
         <form onSubmit={ onSubmit } className='col-12'>
             <div className="type_msg ">
-                <div className="input_msg_write col-sm-9 ">
+                <div className="input_msg_write col-sm-6 ">
                     <input
                       type="text"
                         autoFocus
@@ -81,7 +81,7 @@ const Onclick =async()=>{
                         placeholder="Mensaje..."
                         value={ mensaje }
                         onChange={ onChange }
-                       
+                        
                     />
                 </div>
                 <div className="row text-center" style={{paddingInlineStart:'1%'}}>
