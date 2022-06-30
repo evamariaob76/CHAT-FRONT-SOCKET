@@ -3,11 +3,12 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { AuthContext } from '../auth/AuthContext';
 import { ChatContext } from '../context/chat/ChatContext';
 import { SocketContext } from '../context/SocketContext';
+import { types } from '../types/types';
 
 
 
 export const SendMessage = () => {
-    const {chatState} = useContext(ChatContext)
+    const {chatState, dispatch} = useContext(ChatContext)
     const [ mensaje, setMensaje ] = useState('');
     const { socket } = useContext( SocketContext );
     const { auth } = useContext( AuthContext );
@@ -51,28 +52,38 @@ const cargado=()=>{
         // TODO: hacer el dispatch de el mensaje... 
 
     }
-const focus =async()=>{
-       const totalNoLeidos = `${baseUrl}/mensajes/totalNoLeidos/${auth.uid}/${chatState.chatActivo}`;
-        const respuesta=await fetch(totalNoLeidos)
-        let commits = await respuesta.json(respuesta);
-        console.log(commits)
-       // settotales(commits.mensajesNoLeidos)
-        //settotales(0)
-}
+
 
 const Onclick =async()=>{
-       const totalNoLeidos = `${baseUrl}/mensajes/totalNoLeidos/${auth.uid}/${chatState.chatActivo}`;
+     /*  const totalNoLeidos = `${baseUrl}/mensajes/totalNoLeidos/${auth.uid}/${chatState.chatActivo}`;
         const respuesta=await fetch(totalNoLeidos)
        const  commits= await respuesta.json(respuesta);
         console.log(commits)
-        settotales(commits.mensajesNoLeidos)
+        settotales(commits.mensajesNoLeidos)*/
+
+
+              /*  dispatch ({
+            type: types.cargarMensajes,
+            payload:resp.mensajes
+        });*/
+        
+    const totalNoLeidos = `${baseUrl}/mensajes/totalNoLeidos/${chatState.chatActivo}/${auth.uid}`;
+        const respuesta=await fetch(totalNoLeidos)
+        const commits = await respuesta.json(respuesta);
+        const NoLeido=commits.mensajesNoLeidos
+        console.log(NoLeido)
+       /*dispatch({   
+            type: types.mensajesNoleidos,
+            mensajes:NoLeido
+        })*/
+
 }
 
     return (
-        <div className='row'  >
-        <form onSubmit={ onSubmit } className='col-12'>
+        <div className='row row-chat' style={{width:'100%'}} >
+        <form onSubmit={ onSubmit } className='col-12' >
             <div className="type_msg ">
-                <div className="input_msg_write col-sm-6 ">
+                <div className="input_msg_write col-sm-9 " >
                     <input
                       type="text"
                         autoFocus
@@ -81,7 +92,6 @@ const Onclick =async()=>{
                         placeholder="Mensaje..."
                         value={ mensaje }
                         onChange={ onChange }
-                        
                     />
                 </div>
                 <div className="row text-center" style={{paddingInlineStart:'1%'}}>

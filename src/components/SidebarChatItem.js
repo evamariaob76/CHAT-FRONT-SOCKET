@@ -28,20 +28,23 @@ export const SidebarChatItem =  ({usuario}) => {
     const [totales, settotales] = useState(0);
     const { auth } = useContext( AuthContext );
     const baseUrl = process.env.REACT_APP_API_URL;
-  console.log(chatActivo+'inicio')   
+  //console.log(chatActivo+'inicio')   
 
-  console.log(chatActivo+'chatactivo')   
-  console.log(usuario.uid)
-  console.log(chatState.chatActivo+'state')
+  //console.log(chatActivo+'chatactivo')   
+  //console.log(usuario.uid)
 
+    useEffect(() => {
+        onLoad()
 
+    }, [totales])
+    
 
 
     const  onClick =async ()=>{
     
      const url = `${baseUrl}/mensajes/actualizar/${auth.uid}/${usuario.uid}`;
      const totalLeidios = `${baseUrl}/mensajes/totalLeidos/${auth.uid}/${usuario.uid}`;
-         console.log(chatActivo + 'click')
+         //console.log(chatActivo + 'click')
 
      await fetch(url);
 
@@ -61,10 +64,7 @@ export const SidebarChatItem =  ({usuario}) => {
             payload:resp.mensajes
         });
 
-         dispatch ({
-            type: types.Noleidos,
-            payload:usuario
-        });
+
         scrollToBottom("mensajes")
 }
 
@@ -74,36 +74,36 @@ export const SidebarChatItem =  ({usuario}) => {
             settotales(0)
         }
     }, []);
-    
 
 const onLoad =async()=>{
-console.log(chatActivo)
-console.log(usuario.uid)
-console.log(auth.uid +'authuid')
-  console.log(chatState.chatActivo+'state')
+////console.log(chatActivo)
+//console.log(usuario.uid)
+//console.log(auth.uid +'authuid')
+  //console.log(chatState.chatActivo+'state')
+//console.log(usuario)
+
 
    /* if(chatActivo === usuario.uid ){
         console.log('seteando')
             settotales(0)
 }*/
 
-    console.log(chatActivo + 'alcargar')
+    //console.log(chatActivo + 'alcargar')
 
         const totalNoLeidos = `${baseUrl}/mensajes/totalNoLeidos/${auth.uid}/${usuario.uid}`;
         const respuesta=await fetch(totalNoLeidos)
-        let commits = await respuesta.json(respuesta);
+        const commits = await respuesta.json(respuesta);
+        
 
         
        if(commits.de ===chatActivo && commits.para ===auth.uid  ){
             settotales(0)
-
         }
         else{
-                    console.log(commits)
+           // console.log(commits)
             settotales(commits.mensajesNoLeidos)
 
         }
-
 
 }
 

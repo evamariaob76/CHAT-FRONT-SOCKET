@@ -46,6 +46,12 @@ export const chatReducer = ( state, action ) => {
                 ...state,
                 mensajes: [ ...action.payload ]
             }
+        case types.mensajesNoleidos:
+            return {
+                ...state,
+                mensajes: [ action.payload ]
+            }
+        
     
         default:
             return state;
