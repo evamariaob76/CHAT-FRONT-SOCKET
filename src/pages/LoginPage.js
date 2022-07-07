@@ -2,17 +2,34 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../auth/AuthContext';
 import Swal from 'sweetalert2';
+import { ChatContext } from '../context/chat/ChatContext';
+import { types } from '../types/types';
 
 
 
 export const LoginPage = () => {
 const {login} = useContext(AuthContext);
+    const {chatState, dispatch} = useContext(ChatContext)
 
+const [usuario, setusuario] = useState('')
     const [form, setForm] = useState({
     email:'',
     password:'',
     rememberMe: false
 });
+
+
+    
+useEffect(() => {
+  
+
+  return () => {
+    setusuario()
+  }
+}, [login])
+
+
+
 useEffect(() => {
   const email=localStorage.getItem('email');
   if(email){
@@ -37,6 +54,7 @@ const onSubmit= async (e)=>{
     e.preventDefault();
     if(form.rememberMe){
         localStorage.setItem('email', form.email)
+
     }
     else{
         localStorage.removeItem('email')
@@ -44,10 +62,16 @@ const onSubmit= async (e)=>{
     const{email, password}= form;
 
     const ok = await login(email,password);
+
+
+
+ 
+
     if(!ok){
         Swal.fire('Error', 'Verifique usuario y/o contraseña', 'error')
 
     }
+    
 }
 
 const toogleCheck= ()=>{
@@ -56,6 +80,8 @@ const toogleCheck= ()=>{
         rememberMe: !form.rememberMe
     })
 };
+
+
 
 const todoOK=()=>{
     return( form.email.length > 0 && form.password.length >0) ? true : false;

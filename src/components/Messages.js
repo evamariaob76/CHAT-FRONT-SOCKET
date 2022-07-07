@@ -6,11 +6,12 @@ import { IncomingMessage } from './IncomingMessage';
 import { OutgoingMessage } from './OutgoingMessage';
 import { SendMessage } from './SendMessage';
 
-export const Messages = () => {
+export const Messages = ({usuario}) => {
+    const {chatState,dispatch} = useContext(ChatContext);
 
-    const { chatState } = useContext( ChatContext );
     const { auth } = useContext( AuthContext );
-    
+       
+
 
     return (
         <div className="mesgs row"  >

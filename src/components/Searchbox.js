@@ -7,7 +7,6 @@ export const Searchbox = () => {
     const fileInputRef = useRef();
 
 
-
     const {auth, logout,actualizarAvatar} = useContext(AuthContext);
     const [imagen, setImg] = useState(auth.img);
 

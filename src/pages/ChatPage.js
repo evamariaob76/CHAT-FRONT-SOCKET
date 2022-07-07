@@ -7,15 +7,16 @@ import { ChatContext } from '../context/chat/ChatContext';
 
 import '../css/chat.css';
 
-export const ChatPage = () => {
-
+export const ChatPage = ({usuario}) => {
     const { chatState} = useContext( ChatContext );
+
+
 
     return (
         <div className="messaging   "   >
             <div className="inbox_msg  ">
 
-                <InboxPeople />
+                <InboxPeople  />
 
                 {
                     ( chatState.chatActivo )

@@ -15,7 +15,7 @@ export const SocketProvider = ({ children }) => {
 
     
     const { auth } = useContext( AuthContext );
-    const {dispatch} = useContext(ChatContext)
+    const {dispatch} = useContext(ChatContext);
 
     useEffect(() => {
         if ( auth.logged ) {
@@ -40,6 +40,7 @@ export const SocketProvider = ({ children }) => {
 
     useEffect(() => {
         socket?.on('mensaje-personal', (mensaje)=>{
+
             dispatch({
                 type: types.nuevoMensaje,
                 payload:mensaje
@@ -48,6 +49,38 @@ export const SocketProvider = ({ children }) => {
 
         })
     }, [socket, dispatch]);
+
+
+    useEffect(() => {
+        socket?.on('lista-mensajes-No-Leidos', (mensajesTotales)=>{
+     
+            dispatch({
+                type: types.mensajesTotales,
+                payload:mensajesTotales
+            });
+
+        })
+    }, [socket]);
+   
+    useEffect(() => {
+        socket?.on('lista-mensajes-No-Leidos-Usuario', (mensajesNoLeidos)=>{
+           dispatch({
+                type: types.mensajesNoLeidos,
+                payload:mensajesNoLeidos
+            });
+
+        })
+    }, [socket]);
+
+     /*useEffect(() => {
+        socket?.on('actualizar-Mensajes-Leidos', (actualizar)=>{
+           dispatch({
+                type: types.actualizar,
+                payload:actualizar
+            });
+
+        })
+    }, [socket]);*/
     return (
         <SocketContext.Provider value={{ socket, online }}>
             { children }

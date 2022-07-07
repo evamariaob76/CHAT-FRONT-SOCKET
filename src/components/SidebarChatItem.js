@@ -1,8 +1,8 @@
 
 
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { ChatContext } from '../context/chat/ChatContext';
-import { fetchConToken } from '../helpers/fecth';
+import { fetchConToken, fetchSinToken,fecthUsuario } from '../helpers/fecth';
 import { scrollToBottom } from '../helpers/scrollToBottom';
 import { types } from '../types/types';
 import {Image} from 'cloudinary-react';
@@ -10,106 +10,167 @@ import { Badge } from '@mui/material';
 import MailIcon from '@mui/icons-material/Mail';
 import { AuthContext } from '../auth/AuthContext';
 import { createContext } from 'react';
+import { SocketContext } from '../context/SocketContext';
+import { chatReducer } from '../context/chat/chatReducer';
 
-
-const badgeStyle = {
-  "& .MuiBadge-badge": {
-    width: 350,
-    height: 250,
-    borderRadius: '50%'
-  }
-}
-export const SocketContext = createContext();
+//export const SocketContext = createContext();
 
 
 export const SidebarChatItem =  ({usuario}) => {
     const {chatState,dispatch} = useContext(ChatContext);
     const {chatActivo}= chatState;
-    const [totales, settotales] = useState(0);
+    const {usuarios} = useContext(SocketContext);
+
+    const {mensajesNoLeidos, mensajesTotales}= chatState;
+    const [noleidos, setNoleidos] = useState([]);
+
     const { auth } = useContext( AuthContext );
     const baseUrl = process.env.REACT_APP_API_URL;
-  //console.log(chatActivo+'inicio')   
+    const [Mountes, setMountes] = useState(0)
 
-  //console.log(chatActivo+'chatactivo')   
-  //console.log(usuario.uid)
 
-    useEffect(() => {
-        onLoad()
+//console.log(mensajesNoLeidos)
 
-    }, [totales])
-    
+   /*  useEffect(() => {
+     mensajesNoLeidos.map((item)=>{
+        if(usuario.uid ===item._id){
+            setMountes(item.totales)
+            console.log(item.totales+ 'OK')
+        }
+
+      return () => {
+        setMountes(0)
+      }
+    }, [mensajesNoLeidos])
+    })*/
+
+
+
+
+
+
+
+    /* const fetchData = async()=>{    
+
+        const totalNoLeidos = `${baseUrl}/mensajes/totalNoLeidos/${auth.uid}/${usuario.uid}`;
+        const respuesta=await fetch(totalNoLeidos)
+        const commits = await respuesta.json(respuesta);
+        //console.log(commits)
+            if(commits.de ===chatActivo && commits.para ===auth.uid  ){
+             //   console.log(commits)
+                   setNoleidos(0);
+                    //actualizar(commits.de,commits.para )
+            }
+            else if(commits.para ===auth.uid){
+
+              setNoleidos(commits.mensajesNoLeidos)
+              console.log('veces')
+        }
+     }*/
+
+
+     useEffect(() => {
+
+
+      setTimeout(async() => {
+        const totalNoLeidos = `${baseUrl}/mensajes/totalNoLeidos/${auth.uid}/${usuario.uid}`;
+        const respuesta=await fetch(totalNoLeidos).then((response)=>response.json()).then((commits)=>{
+            if(commits.de ===chatActivo && commits.para ===auth.uid  ){
+             //   console.log(commits)
+                   setNoleidos(0);
+                    //actualizar(commits.de,commits.para )
+            }
+            else{
+              setNoleidos(commits.mensajesNoLeidos)
+           }
+        })
+}, 500);
+
+
+
+}, [ usuario.uid])
+     
+        
+
+
+
+
+
+        /*  socket.emit( 'lista-mensajes-No-Leidos',{
+            uid: auth.uid,
+        });*/
+
+        
+ 
+
+var x=0;
+var y=0;
+
+
+/*useEffect(() => {
+
+
+  for (x=0;x<mensajesNoLeidos.length;x++) {
+    console.log(mensajesNoLeidos[x].de +'///'+ usuario.uid)
+    if(mensajesNoLeidos[x].de ===usuario.uid)
+    console.log(mensajesNoLeidos[x].de+'OK')
+   // setMountes(x)
+}
+  return () => {
+
+  }
+}, [usuario.uid])*/
+
+
+
+
+
+
+
+/*useEffect(() => {
+
+  return () => {    
+
+    actualizando();
+  }
+}, [])*/
+
+
+
 
 
     const  onClick =async ()=>{
-    
-     const url = `${baseUrl}/mensajes/actualizar/${auth.uid}/${usuario.uid}`;
-     const totalLeidios = `${baseUrl}/mensajes/totalLeidos/${auth.uid}/${usuario.uid}`;
-         //console.log(chatActivo + 'click')
-
-     await fetch(url);
-
-        const respuesta=await fetch(totalLeidios)
-        let commits = await respuesta.json(totalLeidios);
-
-
 
     dispatch({   
             type: types.activarChat,
             payload:usuario.uid
         })
 
-       const resp =  await fetchConToken (`mensajes/${usuario.uid}`);
+       const resp =  await fetchConToken (`mensajes/${usuario.uid}`);        
         dispatch ({
             type: types.cargarMensajes,
             payload:resp.mensajes
         });
+        const actualizar = async()=>{
 
 
-        scrollToBottom("mensajes")
+          setTimeout(async() => {
+            const actualizar = `${baseUrl}/mensajes/actualizar/${auth.uid}/${usuario.uid}`;
+            const respuestaServidor=await fetch(actualizar)
+            const commits = await respuestaServidor.json(respuestaServidor);
+            
+            setMountes(0)}, 500);
+
+
+     }   
+        actualizar()
 }
 
-    useEffect(() => {
 
-        return () => {
-            settotales(0)
-        }
-    }, []);
-
-const onLoad =async()=>{
-////console.log(chatActivo)
-//console.log(usuario.uid)
-//console.log(auth.uid +'authuid')
-  //console.log(chatState.chatActivo+'state')
-//console.log(usuario)
-
-
-   /* if(chatActivo === usuario.uid ){
-        console.log('seteando')
-            settotales(0)
-}*/
-
-    //console.log(chatActivo + 'alcargar')
-
-        const totalNoLeidos = `${baseUrl}/mensajes/totalNoLeidos/${auth.uid}/${usuario.uid}`;
-        const respuesta=await fetch(totalNoLeidos)
-        const commits = await respuesta.json(respuesta);
-        
-
-        
-       if(commits.de ===chatActivo && commits.para ===auth.uid  ){
-            settotales(0)
-        }
-        else{
-           // console.log(commits)
-            settotales(commits.mensajesNoLeidos)
-
-        }
-
-}
 
 
     return (
-        <div onLoad={onLoad} className='row chat-izquierda'onClick={onClick}>
+        <div className='row chat-izquierda' onClick={onClick}>
         <div  className={`col-12 chat_list ${usuario.uid === chatActivo && 'active_chat'}` } >
             {/* active_chat */}
             <div className="chat_people row">
@@ -136,13 +197,35 @@ const onLoad =async()=>{
                     </div>
                     <div className='col-6 icono' >     
             
-                     
-                    
-                
-                         <Badge badgeContent={totales} color="primary"  >
-                            <MailIcon color="action"/>
-                        </Badge> 
+                     {noleidos>0  && Mountes===0
+                     ?
+                      <Badge badgeContent={noleidos} color="primary"  key ={usuario.uid} >
+                        <MailIcon color="action"/>
+                    </Badge>
+                     :
                  
+                    <Badge badgeContent={Mountes} color="primary" key ={usuario.uid} >
+                         <MailIcon color="action"/>
+                    </Badge>  
+                     }
+            
+         
+
+{/*
+
+
+         mensajesNoLeidos.map( item => (
+                        ( usuario.uid ===item._id )
+                            ?      <Badge badgeContent={item.totales} color="primary" key ={usuario.uid} >
+                            <MailIcon color="action"/>
+                </Badge>  
+                            :      <Badge badgeContent='0' color="primary" key ={usuario.uid} >
+                            <MailIcon color="action"/>
+                </Badge>  
+                    ))
+*/
+
+}
                       
 
                     </div>                               

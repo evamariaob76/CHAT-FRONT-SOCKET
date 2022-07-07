@@ -8,7 +8,10 @@ const initialState ={
     chatActivo:null,
     usuarios:[],
     mensajes:[],
-    mensajesNoLeidos:0
+    mensajesTotales:[],
+    mensajesNoLeidos:[],
+    mensajesLeidos:[],
+    actualizar:[]
 }
 
 

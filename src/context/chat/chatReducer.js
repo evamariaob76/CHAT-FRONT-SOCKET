@@ -9,14 +9,17 @@ export const chatReducer = ( state, action ) => {
                 uid:'',
                 chatActivo:null,
                 usuarios:[],
-                mensajes:[]
+                mensajes:[],
+            mensajesTotales:[],
+            mensajesNoLeidos:[]
 
             }
         
         case types.usuariosCargados:
             return {
                 ...state,
-                usuarios: [ ...action.payload ]
+                usuarios: [ ...action.payload ],
+
             }
         
         case types.activarChat:
@@ -30,6 +33,7 @@ export const chatReducer = ( state, action ) => {
 
 
         case types.nuevoMensaje:
+
             if ( state.chatActivo === action.payload.de || 
                  state.chatActivo === action.payload.para   
             ) {
@@ -42,19 +46,48 @@ export const chatReducer = ( state, action ) => {
             }
 
         case types.cargarMensajes:
+     
             return {
                 ...state,
                 mensajes: [ ...action.payload ]
             }
-        case types.mensajesNoleidos:
+            
+        case types.mensajesTotales:
             return {
                 ...state,
-                mensajes: [ action.payload ]
+                mensajesTotales: [ ...action.payload ]
             }
-        
-    
-        default:
-            return state;
-    }
 
+         case types.mensajesNoLeidos:
+
+
+               return {
+                ...state,
+                mensajesNoLeidos: [ action.payload ]
+            }  
+            
+         case types.actualizar:
+        console.log(state)
+                console.log(action)
+
+                      //  console.log(action.payload)
+
+             /*  return {
+                actualizar: [ action.payload ]
+           }  */
+          case types.mensajesLeidos:
+               return {
+                ...state,
+                mensajesNoLeidos: [ action.payload ]
+            } 
+
+            case types.actualizar:
+                        console.log(action)
+
+               return {
+                ...state,
+                actualizar: [ action.actualizar ]
+            } 
+        default:
+            return state;   }
 }

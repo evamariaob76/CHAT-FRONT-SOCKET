@@ -15,7 +15,7 @@ const initialState ={
     nombre:null,
     email:null,
     img:null,
-    mensajesTotales:0
+    online:false
 };
 
 
@@ -25,8 +25,11 @@ export const AuthProvider = ({children}) => {
   const {dispatch} = useContext(ChatContext)
   const login = async (email, password)=>{
     const resp = await  fetchSinToken ('login', {email,password}, 'POST');
+
+
     if(resp.ok){
         localStorage.setItem('token', resp.token);
+
         const {usuario} = resp;
         setAuth({
             uid:usuario.uid,
@@ -34,9 +37,11 @@ export const AuthProvider = ({children}) => {
             logged:true,
             nombre:usuario.nombre,
             email:usuario.email,
-            img:usuario.img
+            img:usuario.img,
+           // online:true
         })
     }
+
     return resp.ok;
 
   };
@@ -51,8 +56,10 @@ export const AuthProvider = ({children}) => {
             logged:true,
             nombre:usuario.nombre,
             email:usuario.email,
-            img:usuario.img
+            img:usuario.img,
+            //online:usuario.online
         })
+                       
     }
     return resp.ok;
     }
@@ -79,7 +86,9 @@ export const AuthProvider = ({children}) => {
                 logged:true,
                 nombre:usuario.nombre,
                 email:usuario.email,
-                img:usuario.img
+                img:usuario.img,
+                online:true
+
 
             })
             return true;
