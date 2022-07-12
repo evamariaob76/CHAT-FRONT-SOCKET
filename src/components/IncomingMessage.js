@@ -4,7 +4,6 @@ import { horaMes } from '../helpers/horaMes';
 
 export const IncomingMessage = ({msg}) => {
     const {auth} = useContext(AuthContext);
-console.log(auth)
 
 
     return (
