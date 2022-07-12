@@ -66,15 +66,7 @@ export const chatReducer = ( state, action ) => {
                 mensajesNoLeidos: [ action.payload ]
             }  
             
-         case types.actualizar:
-        console.log(state)
-                console.log(action)
 
-                      //  console.log(action.payload)
-
-             /*  return {
-                actualizar: [ action.payload ]
-           }  */
           case types.mensajesLeidos:
                return {
                 ...state,
@@ -82,7 +74,6 @@ export const chatReducer = ( state, action ) => {
             } 
 
             case types.actualizar:
-                        console.log(action)
 
                return {
                 ...state,
