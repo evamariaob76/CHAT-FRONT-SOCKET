@@ -1,34 +1,42 @@
 
 
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ChatContext } from '../context/chat/ChatContext';
-import { fetchConToken, fetchSinToken,fecthUsuario } from '../helpers/fecth';
-import { scrollToBottom } from '../helpers/scrollToBottom';
+import { fetchConToken } from '../helpers/fecth';
 import { types } from '../types/types';
 import {Image} from 'cloudinary-react';
 import { Badge } from '@mui/material';
 import MailIcon from '@mui/icons-material/Mail';
 import { AuthContext } from '../auth/AuthContext';
-import { createContext } from 'react';
-import { SocketContext } from '../context/SocketContext';
-import { chatReducer } from '../context/chat/chatReducer';
+
 
 //export const SocketContext = createContext();
-
 
 export const SidebarChatItem =  ({usuario}) => {
     const {chatState,dispatch} = useContext(ChatContext);
     const {chatActivo}= chatState;
-    const {usuarios} = useContext(SocketContext);
 
-    const {mensajesNoLeidos, mensajesTotales}= chatState;
     const [noleidos, setNoleidos] = useState([]);
 
     const { auth } = useContext( AuthContext );
     const baseUrl = process.env.REACT_APP_API_URL;
     const [Mountes, setMountes] = useState(0)
 
-
+    useEffect(() => {
+      
+    
+      return () => {
+        setMountes(0)
+      }
+    }, [])
+    
+    useEffect(() => {
+      
+    
+      return () => {
+        setNoleidos(0)
+      }
+    }, [])
 //console.log(mensajesNoLeidos)
 
    /*  useEffect(() => {
@@ -74,7 +82,7 @@ export const SidebarChatItem =  ({usuario}) => {
 
       setTimeout(async() => {
         const totalNoLeidos = `${baseUrl}/mensajes/totalNoLeidos/${auth.uid}/${usuario.uid}`;
-        const respuesta=await fetch(totalNoLeidos).then((response)=>response.json()).then((commits)=>{
+        await fetch(totalNoLeidos).then((response)=>response.json()).then((commits)=>{
             if(commits.de ===chatActivo && commits.para ===auth.uid  ){
              //   console.log(commits)
                    setNoleidos(0);
@@ -86,15 +94,8 @@ export const SidebarChatItem =  ({usuario}) => {
         })
 }, 500);
 
-
-
-}, [ usuario.uid])
+}, [ usuario.uid, auth.uid, baseUrl])
      
-        
-
-
-
-
 
         /*  socket.emit( 'lista-mensajes-No-Leidos',{
             uid: auth.uid,
@@ -102,9 +103,6 @@ export const SidebarChatItem =  ({usuario}) => {
 
         
  
-
-var x=0;
-var y=0;
 
 
 /*useEffect(() => {
@@ -157,7 +155,7 @@ var y=0;
           setTimeout(async() => {
             const actualizar = `${baseUrl}/mensajes/actualizar/${auth.uid}/${usuario.uid}`;
             const respuestaServidor=await fetch(actualizar)
-            const commits = await respuestaServidor.json(respuestaServidor);
+            await respuestaServidor.json(respuestaServidor);
             
             setMountes(0)}, 500);
 

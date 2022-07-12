@@ -2,16 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../auth/AuthContext';
 import Swal from 'sweetalert2';
-import { ChatContext } from '../context/chat/ChatContext';
-import { types } from '../types/types';
 
 
 
 export const LoginPage = () => {
 const {login} = useContext(AuthContext);
-    const {chatState, dispatch} = useContext(ChatContext)
 
-const [usuario, setusuario] = useState('')
     const [form, setForm] = useState({
     email:'',
     password:'',
@@ -20,13 +16,9 @@ const [usuario, setusuario] = useState('')
 
 
     
-useEffect(() => {
   
 
-  return () => {
-    setusuario()
-  }
-}, [login])
+
 
 
 

@@ -3,24 +3,26 @@ import { AuthContext } from '../auth/AuthContext';
 import { fileUpload } from '../helpers/fileUpload';
 
 
+
 export const Searchbox = () => {
     const fileInputRef = useRef();
 
 
     const {auth, logout,actualizarAvatar} = useContext(AuthContext);
     const [imagen, setImg] = useState(auth.img);
-
     const nombre = auth.nombre;
 
 
+
     const onFileInputChange= async({target})=>{
+            //const eliminar = await eliminarAvatar(auth.img)
+           //console.log(eliminar)
 
         if(target.files===0)return;
         try {
-            const imagen =await fileUpload(target.files);
-            console.log(imagen)
-            const actualizarIMG= await actualizarAvatar(imagen)
+            const upload =await fileUpload(target.files);
 
+            const actualizarIMG= await actualizarAvatar(upload);
             setImg(actualizarIMG);
 
         } catch (error) {
@@ -28,8 +30,14 @@ export const Searchbox = () => {
 
     }
   
+  
+
     
 }
+
+
+
+
     return (
 
 

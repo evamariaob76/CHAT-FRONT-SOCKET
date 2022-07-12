@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { AuthContext } from '../auth/AuthContext';
 import { ChatContext } from '../context/chat/ChatContext'
 import { SidebarChatItem } from './SidebarChatItem'

@@ -119,8 +119,6 @@ export const AuthProvider = ({children}) => {
    const actualizarAvatar =async (img)=>{
         const email = auth.email;
         const resp = await fetchConToken('login/actualizarAvatar',{email,img}, 'POST');
-        
-        console.log(resp)
         setAuth({
             uid:auth.uid,
                 checking: false,
@@ -136,6 +134,13 @@ export const AuthProvider = ({children}) => {
     
   
 }
+   /*const avatar =async (email)=>{
+    const resp = await  fetchConToken ('login/avatar', {email}, 'POST');
+    console.log(resp)
+
+        return resp 
+  
+}*/
 
   return (
     <AuthContext.Provider value={{

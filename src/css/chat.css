@@ -356,10 +356,6 @@ textarea {
 
 
 
-    .row {
-        margin: 0%;
-    }
-
     img {
         display: flex;
         left: 0px;
@@ -389,7 +385,7 @@ textarea {
     margin-top: 80%;
 }
 img {
-    max-width: 200%;
+    max-width: 50%;
 }
 }
 @supports(object-fit: cover) {
@@ -401,3 +397,18 @@ img {
 }
 
 
+@media screen and (max-width: 1000px) {
+
+     .online{
+        font-size: 12px!important;
+    }
+h4{
+font-size: 12px!important;
+}
+     .chat_img {
+      display: none;
+  
+    }
+
+  
+  }

@@ -1,18 +1,15 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 import { AuthContext } from '../auth/AuthContext';
 import { ChatContext } from '../context/chat/ChatContext';
 import { SocketContext } from '../context/SocketContext';
-import { types } from '../types/types';
 
 
 
 export const SendMessage = () => {
-    const {chatState, dispatch} = useContext(ChatContext)
+    const {chatState} = useContext(ChatContext)
     
     const [ mensaje, setMensaje ] = useState('');
-    const [ mensajeNoLeido, setMensajeNoLeido ] = useState(0);
-    const {mensajesNoLeidos,mensajesLeidos}= chatState;
 
     const { socket } = useContext( SocketContext );
     const { auth } = useContext( AuthContext );
@@ -64,7 +61,7 @@ export const SendMessage = () => {
 const onClick=async()=>{
         const totalNoLeidos = `${baseUrl}/mensajes/totalNoLeidos/${chatState.chatActivo}/${auth.uid}`;
         const respuesta=await fetch(totalNoLeidos)
-        const commits = await respuesta.json(respuesta);
+        await respuesta.json(respuesta);
 
          socket.emit( 'lista-mensajes-No-Leidos-Usuario', {
             de: chatState.chatActivo,
